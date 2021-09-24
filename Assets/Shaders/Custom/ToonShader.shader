@@ -1,16 +1,14 @@
-// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
-
 Shader "TSF/Base1" 
 {
     Properties 
     {
-		[MaterialToggle(_TEX_ON)] _DetailTex ("Enable Detail texture", Float) = 0 	//1
-		_MainTex ("Detail", 2D) = "white" {}        								//2
-		_ToonShade ("Shade", 2D) = "white" {}  										//3
-		[MaterialToggle(_COLOR_ON)] _TintColor ("Enable Color Tint", Float) = 0 	//4
-		_Color ("Base Color", Color) = (1,1,1,1)									//5	
-		[MaterialToggle(_VCOLOR_ON)] _VertexColor ("Enable Vertex Color", Float) = 0//6        
-		_Brightness ("Brightness 1 = neutral", Float) = 1.0							//7	
+		[MaterialToggle(_TEX_ON)] _DetailTex ("Enable Detail texture", Float) = 0 	
+		_MainTex ("Detail", 2D) = "white" {}        								
+		_ToonShade ("Shade", 2D) = "white" {}  										
+		[MaterialToggle(_COLOR_ON)] _TintColor ("Enable Color Tint", Float) = 0 	
+		_Color ("Base Color", Color) = (1,1,1,1)									
+		[MaterialToggle(_VCOLOR_ON)] _VertexColor ("Enable Vertex Color", Float) = 0        
+		_Brightness ("Brightness 1 = neutral", Float) = 1.0							
     }
    
     Subshader 
