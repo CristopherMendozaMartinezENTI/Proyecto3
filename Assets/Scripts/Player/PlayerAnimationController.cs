@@ -9,7 +9,6 @@ public class PlayerAnimationController : MonoBehaviour
     private int smoothness = 4;
     private float stepHeight = 0.15f;
     private float sphereCastRadius = 0.125f;
-    private bool bodyOrientation = false;
     private float raycastRange = 1.5f;
     private Vector3[] defaultLegPositions;
     private Vector3[] lastLegPositions;
@@ -19,7 +18,7 @@ public class PlayerAnimationController : MonoBehaviour
     private Vector3 velocity;
     private Vector3 lastVelocity;
     private Vector3 lastBodyPos;
-    private float velocityMultiplier = 15f;
+    private float velocityMultiplier = 15.0f;
 
     private void Start()
     {
@@ -86,16 +85,6 @@ public class PlayerAnimationController : MonoBehaviour
         }
 
         lastBodyPos = transform.position;
-        if (nbLegs > 3 && bodyOrientation)
-        {
-            Vector3 v1 = legTargets[0].position - legTargets[1].position;
-            Vector3 v2 = legTargets[2].position - legTargets[3].position;
-            Vector3 normal = Vector3.Cross(v1, v2).normalized;
-            Vector3 up = Vector3.Lerp(lastBodyUp, normal, 1f / (float)(smoothness + 1));
-            transform.up = up;
-            transform.rotation = Quaternion.LookRotation(transform.parent.forward, up);
-            lastBodyUp = transform.up;
-        }
     }
 
     Vector3[] MatchToSurfaceFromAbove(Vector3 point, float halfRange, Vector3 up)
@@ -103,7 +92,7 @@ public class PlayerAnimationController : MonoBehaviour
         Vector3[] res = new Vector3[2];
         res[1] = Vector3.zero;
         RaycastHit hit;
-        Ray ray = new Ray(point + halfRange * up / 2f, -up);
+        Ray ray = new Ray(point + halfRange * up / 2.0f, -up);
 
         if (Physics.SphereCast(ray, sphereCastRadius, out hit, 2f * halfRange))
         {
@@ -117,14 +106,14 @@ public class PlayerAnimationController : MonoBehaviour
         return res;
     }
 
-    //Realizo el movimiento de las piernas 
+    //This funtion allows leg movement
     IEnumerator PerformStep(int index, Vector3 targetPoint)
     {
         Vector3 startPos = lastLegPositions[index];
         for (int i = 1; i <= smoothness; ++i)
         {
-            legTargets[index].position = Vector3.Lerp(startPos, targetPoint, i / (float)(smoothness + 1f));
-            legTargets[index].position += transform.up * Mathf.Sin(i / (float)(smoothness + 1f) * Mathf.PI) * stepHeight;
+            legTargets[index].position = Vector3.Lerp(startPos, targetPoint, i / (float)(smoothness + 1.0f));
+            legTargets[index].position += transform.up * Mathf.Sin(i / (float)(smoothness + 1.0f) * Mathf.PI) * stepHeight;
             Debug.Log("Pierna se ha movido");
             yield return new WaitForFixedUpdate();
         }
@@ -133,7 +122,7 @@ public class PlayerAnimationController : MonoBehaviour
         legMoving[0] = false;
     }
 
-    //Tener esta funcion siempre habilitada al hacer debug.
+    //TENER EL GIZMO SIEMPRE ACTIVO CUANDO DEBUGGES POR FAVOR QUE NO SE TE OLVIDE!!!!!!!!!!!
     private void OnDrawGizmos()
     {
         for (int i = 0; i < nbLegs; ++i)

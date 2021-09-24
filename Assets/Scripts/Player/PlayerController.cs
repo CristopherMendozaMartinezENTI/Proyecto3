@@ -6,12 +6,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private float speed = 3f;
-    private float smoothness = 5f;
+    private float speed = 3.0f;
+    private float smoothness = 5.0f;
     private int raysNb = 8;
     private float raysEccentricity = 0.2f;
-    private float outerRaysOffset = 2f;
-    private float innerRaysOffset = 25f;
+    private float outerRaysOffset = 2.0f;
+    private float innerRaysOffset = 25.0f;
     private Vector3 velocity;
     private Vector3 lastVelocity;
     private Vector3 lastPosition;
