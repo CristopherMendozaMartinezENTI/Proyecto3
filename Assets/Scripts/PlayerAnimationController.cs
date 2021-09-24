@@ -6,7 +6,7 @@ public class PlayerAnimationController : MonoBehaviour
 {
     public Transform[] legTargets;
     private float stepSize = 0.15f;
-    private int smoothness = 8;
+    private int smoothness = 4;
     private float stepHeight = 0.15f;
     private float sphereCastRadius = 0.125f;
     private bool bodyOrientation = false;
