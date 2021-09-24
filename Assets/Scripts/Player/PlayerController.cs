@@ -88,31 +88,6 @@ public class PlayerController : MonoBehaviour
         return res;
     }
 
-    Vector3[] GetClosestPointIco(Vector3 point, Vector3 up, float halfRange)
-    {
-        Vector3[] res = new Vector3[2] { point, up };
-
-        Vector3[] dirs = GetIcoSphereCoords(0);
-        raysNb = dirs.Length;
-
-        float amount = 1f;
-
-        foreach (Vector3 dir in dirs)
-        {
-            RaycastHit hit;
-            Ray ray = new Ray(point + up * 0.15f, dir);
-            if (Physics.SphereCast(ray, 0.01f, out hit, 2f * halfRange))
-            {
-                res[0] += hit.point;
-                res[1] += hit.normal;
-                amount += 1;
-            }
-        }
-        res[0] /= amount;
-        res[1] /= amount;
-        return res;
-    }
-
     static Vector3[] GetClosestPoint(Vector3 point, Vector3 forward, Vector3 up, float halfRange, float eccentricity, float offset1, float offset2, int rayAmount)
     {
         Vector3[] res = new Vector3[2] { point, up };
@@ -134,7 +109,7 @@ public class PlayerController : MonoBehaviour
             RaycastHit hit;
             Vector3 largener = Vector3.ProjectOnPlane(dir, up);
             Ray ray = new Ray(point - (dir + largener) * halfRange + largener.normalized * offset1 / 100f, dir);
-
+         
             if (Physics.SphereCast(ray, 0.01f, out hit, 2f * halfRange))
             {
                 res[0] += hit.point;
