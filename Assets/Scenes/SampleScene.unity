@@ -587,12 +587,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 2108551055}
   axes: 0
-  sensitivityX: 10
-  sensitivityY: 10
-  minimumX: -20
-  maximumX: 20
-  minimumY: -5
-  maximumY: 20
+  sensitivityX: 5
+  sensitivityY: 5
+  minimumX: -30
+  maximumX: 30
+  minimumY: 0
+  maximumY: 15
   frameCounter: 5
   zoomMultiplier: 2
   defaultFov: 80
