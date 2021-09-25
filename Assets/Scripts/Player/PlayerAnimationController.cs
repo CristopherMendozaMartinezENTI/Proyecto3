@@ -70,25 +70,25 @@ public class PlayerAnimationController : MonoBehaviour
         {
             Vector3 targetPoint = desiredPositions[indexToMove] + Mathf.Clamp(velocity.magnitude * velocityMultiplier, 0.0f, 1.5f) * (desiredPositions[indexToMove] - legTargets[indexToMove].position) + velocity * velocityMultiplier;
 
-            Vector3[] positionAndNormalFwd = MatchToSurfaceFromAbove(targetPoint + velocity * velocityMultiplier, raycastRange, (transform.parent.up - velocity * 100).normalized);
-            Vector3[] positionAndNormalBwd = MatchToSurfaceFromAbove(targetPoint + velocity * velocityMultiplier, raycastRange*(1f + velocity.magnitude), (transform.parent.up + velocity * 75).normalized);
+            Vector3[] positionAndNormalFwd = alignWithSurface(targetPoint + velocity * velocityMultiplier, raycastRange, (transform.parent.up - velocity * 100).normalized);
+            Vector3[] positionAndNormalBwd = alignWithSurface(targetPoint + velocity * velocityMultiplier, raycastRange*(1f + velocity.magnitude), (transform.parent.up + velocity * 75).normalized);
             
             legMoving[0] = true;
             
             if (positionAndNormalFwd[1] == Vector3.zero)
             {
-                StartCoroutine(PerformStep(indexToMove, positionAndNormalBwd[0]));
+                StartCoroutine(performStep(indexToMove, positionAndNormalBwd[0]));
             }
             else
             {
-                StartCoroutine(PerformStep(indexToMove, positionAndNormalFwd[0]));
+                StartCoroutine(performStep(indexToMove, positionAndNormalFwd[0]));
             }
         }
-
         lastBodyPos = transform.position;
     }
 
-    private Vector3[] MatchToSurfaceFromAbove(Vector3 point, float halfRange, Vector3 up)
+    //This funtions allows the legs to align with the surface above
+    private Vector3[] alignWithSurface(Vector3 point, float halfRange, Vector3 up)
     {
         Vector3[] res = new Vector3[2];
         res[1] = Vector3.zero;
@@ -108,7 +108,7 @@ public class PlayerAnimationController : MonoBehaviour
     }
 
     //This funtion allows leg movement
-    private IEnumerator PerformStep(int index, Vector3 targetPoint)
+    private IEnumerator performStep(int index, Vector3 targetPoint)
     {
         Vector3 startPos = lastLegPositions[index];
         for (int i = 1; i <= smoothness; ++i)
@@ -123,7 +123,7 @@ public class PlayerAnimationController : MonoBehaviour
         legMoving[0] = false;
     }
 
-    //TENER EL GIZMO SIEMPRE ACTIVO CUANDO DEBUGGES POR FAVOR QUE NO SE TE OLVIDE!!!!!!!!!!!
+    //HAY TENER EL GIZMO SIEMPRE ACTIVO AL DEBUGGAR POR FAVOR QUE NO SE TE OLVIDE!!!!!!!!!!!
     private void OnDrawGizmos()
     {
         for (int i = 0; i < nbLegs; ++i)
@@ -132,5 +132,4 @@ public class PlayerAnimationController : MonoBehaviour
             Gizmos.DrawWireSphere(legTargets[i].position, 0.05f);
         }
     }
-
 }

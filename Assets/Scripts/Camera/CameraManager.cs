@@ -43,11 +43,11 @@ public class CameraManager : MonoBehaviour
         Cursor.visible = true;
         if (Input.GetMouseButton(1))
         {
-            ZoomCamera(defaultFov / zoomMultiplier);
+            zoomCamera(defaultFov / zoomMultiplier);
         }
         else if (cam.fieldOfView != defaultFov)
         {
-            ZoomCamera(defaultFov);
+            zoomCamera(defaultFov);
         }
 
         if (!Input.GetKey(KeyCode.R))
@@ -79,15 +79,15 @@ public class CameraManager : MonoBehaviour
 
             rotAverageY /= rotArrayY.Count;
             rotAverageX /= rotArrayX.Count;
-            rotAverageY = ClampAngle(rotAverageY, minimumY, maximumY);
-            rotAverageX = ClampAngle(rotAverageX, minimumX, maximumX);
+            rotAverageY = clampAngle(rotAverageY, minimumY, maximumY);
+            rotAverageX = clampAngle(rotAverageX, minimumX, maximumX);
             Quaternion yQuaternion = Quaternion.AngleAxis(rotAverageY, Vector3.left);
             Quaternion xQuaternion = Quaternion.AngleAxis(rotAverageX, Vector3.up);
             transform.localRotation = originalRotation * xQuaternion * yQuaternion;
         }
     }
 
-    public float ClampAngle(float angle, float min, float max)
+    public float clampAngle(float angle, float min, float max)
     {
         angle = angle % 360;
         if ((angle >= -360.0f) && (angle <= 360.0f))
@@ -104,7 +104,7 @@ public class CameraManager : MonoBehaviour
         return Mathf.Clamp(angle, min, max);
     }
 
-    private void ZoomCamera(float target)
+    private void zoomCamera(float target)
     {
         float angle = Mathf.Abs((defaultFov / zoomMultiplier) - defaultFov);
         cam.fieldOfView = Mathf.MoveTowards(cam.fieldOfView, target, angle / zoomDuration * Time.deltaTime);

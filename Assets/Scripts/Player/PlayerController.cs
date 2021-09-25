@@ -45,21 +45,21 @@ public class PlayerController : MonoBehaviour
         if (moveFoward != false)
             transform.position += transform.forward * speed * multiplier * Time.fixedDeltaTime;
 
-        //Look Backward
+        //Turn Backwards
         bool moveBackward = Input.GetKey(KeyCode.S);
         if (moveBackward != false)
             transform.position += -transform.forward * speed * multiplier * Time.fixedDeltaTime;
 
-        //Look left or Right     
+        //Turn left or Right     
         float valueX = Input.GetAxis("Horizontal");
         if (valueX != 0)
            transform.position += Vector3.Cross(transform.up, transform.forward) * valueX * speed * multiplier * Time.fixedDeltaTime;
 
         if (moveFoward != false || moveBackward != false || valueX != 0)
         {
-            pn = GetClosestPoint(transform.position, transform.forward, transform.up, 0.5f, 0.1f, 30, -30, 4);
+            pn = getClosestPoint(transform.position, transform.forward, transform.up, 0.5f, 0.1f, 30, -30, 4);
             upward = pn[1];
-            Vector3[] pos = GetClosestPoint(transform.position, transform.forward, transform.up, 0.5f, raysEccentricity, innerRaysOffset, outerRaysOffset, raysNb);
+            Vector3[] pos = getClosestPoint(transform.position, transform.forward, transform.up, 0.5f, raysEccentricity, innerRaysOffset, outerRaysOffset, raysNb);
             transform.position = Vector3.Lerp(lastPosition, pos[0], 1f / (1f + smoothness));
             forward = velocity.normalized;
             Quaternion q = Quaternion.LookRotation(forward, upward);
@@ -68,7 +68,8 @@ public class PlayerController : MonoBehaviour
         lastRot = transform.rotation;
     }
 
-    static Vector3[] GetClosestPoint(Vector3 point, Vector3 forward, Vector3 up, float halfRange, float eccentricity, float offset1, float offset2, int rayAmount)
+    //This function allows the player to find the closest point near by and move towards it. This basically allows the player to walk on any surface posible
+    private Vector3[] getClosestPoint(Vector3 point, Vector3 forward, Vector3 up, float halfRange, float eccentricity, float offset1, float offset2, int rayAmount)
     {
         Vector3[] res = new Vector3[2] { point, up };
         Vector3 right = Vector3.Cross(up, forward);
