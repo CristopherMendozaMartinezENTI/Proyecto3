@@ -35,18 +35,18 @@ public class PlayerController : MonoBehaviour
             velocity = lastVelocity;
         lastPosition = transform.position;
         lastVelocity = velocity;
-     
-        //Run
         float multiplier = 1f;
+    
+        //Run
         if (Input.GetKey(KeyCode.LeftShift))
-            multiplier = 2f;
+            multiplier = 1.5f;
 
         //Move Foward
         bool moveFoward = Input.GetKey(KeyCode.W);
         if (moveFoward != false)
             transform.position += transform.forward * speed * multiplier * Time.fixedDeltaTime;
 
-        //Move Backward
+        //Look Backward
         bool moveBackward = Input.GetKey(KeyCode.S);
         if (moveBackward != false)
             transform.position += -transform.forward * speed * multiplier * Time.fixedDeltaTime;
