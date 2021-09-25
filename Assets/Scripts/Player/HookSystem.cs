@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class HookSystem : MonoBehaviour
 {
-    public GameObject player;
     public float maxGrabDistance = 5.0f;
 
     private float currentGrabDistance;
     private Vector2 rotationInput;
     private Vector3 hitOffsetLocal;
     private Vector3 rotationDifferenceEuler;
-    private new Rigidbody rigidbody;
     private RigidbodyInterpolation initialInterpolationSetting;
+    private GameObject player;
+    private new Rigidbody rigidbody;
     private LineRenderer lineRenderer;
 
     private void Start()
     {
+        player = GameObject.Find("Player");
         lineRenderer = this.gameObject.GetComponent<LineRenderer>();
         lineRenderer.startWidth = 0.01f;
         lineRenderer.endWidth = 0.01f;
@@ -26,13 +27,23 @@ public class HookSystem : MonoBehaviour
 
     private void Update()
     {
+        Ray rayHover = Camera.main.ViewportPointToRay(Vector3.one * 0.5f);
+        RaycastHit hitHover;
+        if (Physics.Raycast(rayHover, out hitHover, maxGrabDistance))
+        {
+            if (hitHover.rigidbody != null && !hitHover.rigidbody.isKinematic)
+            {
+                hitHover.transform.gameObject.GetComponent<Outline>().enabled = true;
+            }
+        }
+
         if (!Input.GetMouseButton(0))
         {
             // Reset the rigidbody to how it was before we grabbed it
             if (rigidbody != null)
             {
                 rigidbody.interpolation = initialInterpolationSetting;
-                rigidbody.transform.gameObject.GetComponent<MeshRenderer>().material.DisableKeyword("_EMISSION");
+                rigidbody.transform.gameObject.GetComponent<CubeManager>().isNotGrabbedNow();
                 rigidbody = null;
             }
             return;
@@ -54,7 +65,7 @@ public class HookSystem : MonoBehaviour
                     hitOffsetLocal = hit.transform.InverseTransformVector(hit.point - hit.transform.position);
                     currentGrabDistance = Vector3.Distance(ray.origin, hit.point);
                     rigidbody.interpolation = RigidbodyInterpolation.Interpolate;
-                    rigidbody.gameObject.GetComponent<MeshRenderer>().material.EnableKeyword("_EMISSION");
+                    rigidbody.gameObject.GetComponent<CubeManager>().isGrabbedNow();
                 }  
             }
         }
@@ -93,5 +104,5 @@ public class HookSystem : MonoBehaviour
             lineRenderer.SetPosition(0, new Vector3(player.transform.position.x, player.transform.position.y + 0.1f, player.transform.position.z)); 
             lineRenderer.SetPosition(1, new Vector3(rigidbody.gameObject.transform.position.x, rigidbody.gameObject.transform.position.y, rigidbody.gameObject.transform.position.z)); 
         }
-    }
+    } 
 }
