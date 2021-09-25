@@ -39,6 +39,7 @@ public class CameraManager : MonoBehaviour
 
     void Update()
     {
+        Cursor.visible = true;
         if (Input.GetMouseButton(1))
         {
             ZoomCamera(defaultFov / zoomMultiplier);

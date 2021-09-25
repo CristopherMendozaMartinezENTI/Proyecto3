@@ -12,6 +12,20 @@ public class HookSystem : MonoBehaviour
     private Vector2 rotationInput;
     public  float maxGrabDistance = 30.0f;
 
+    public GameObject player;
+    LineRenderer lineRenderer;
+
+    private void Start()
+    {
+        lineRenderer = this.gameObject.GetComponent<LineRenderer>();
+        lineRenderer.startColor = Color.white;
+        lineRenderer.endColor = Color.white;
+        lineRenderer.startWidth = 0.01f;
+        lineRenderer.endWidth = 0.01f;
+        lineRenderer.positionCount = 2;
+        lineRenderer.useWorldSpace = true;
+    }
+
     void Update()
     {
         if (!Input.GetMouseButton(0))
@@ -74,6 +88,9 @@ public class HookSystem : MonoBehaviour
             Vector3 force = toDestination / Time.fixedDeltaTime;
             rigidbody.velocity = Vector3.zero;
             rigidbody.AddForce(force, ForceMode.VelocityChange);
+
+            lineRenderer.SetPosition(0, new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z)); //x,y and z position of the starting point of the line
+            lineRenderer.SetPosition(1, new Vector3(rigidbody.gameObject.transform.position.x, rigidbody.gameObject.transform.position.y, rigidbody.gameObject.transform.position.z)); //x,y and z position of the end point of the line
         }
     }
 

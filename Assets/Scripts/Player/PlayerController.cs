@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-
 public class PlayerController : MonoBehaviour
 {
     private float speed = 3.0f;
@@ -35,11 +34,11 @@ public class PlayerController : MonoBehaviour
             velocity = lastVelocity;
         lastPosition = transform.position;
         lastVelocity = velocity;
-        float multiplier = 1f;
+        float multiplier = 1.0f;
     
         //Run
         if (Input.GetKey(KeyCode.LeftShift))
-            multiplier = 1.5f;
+            multiplier = 2.0f;
 
         //Move Foward
         bool moveFoward = Input.GetKey(KeyCode.W);
