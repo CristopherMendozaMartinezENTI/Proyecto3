@@ -4,29 +4,27 @@ using UnityEngine;
 
 public class HookSystem : MonoBehaviour
 {
-    private new Rigidbody rigidbody;
-    private Vector3 hitOffsetLocal;
-    private float currentGrabDistance;
-    private RigidbodyInterpolation initialInterpolationSetting;
-    private Vector3 rotationDifferenceEuler;
-    private Vector2 rotationInput;
-    public  float maxGrabDistance = 30.0f;
-
     public GameObject player;
-    LineRenderer lineRenderer;
+    public float maxGrabDistance = 5.0f;
+
+    private float currentGrabDistance;
+    private Vector2 rotationInput;
+    private Vector3 hitOffsetLocal;
+    private Vector3 rotationDifferenceEuler;
+    private new Rigidbody rigidbody;
+    private RigidbodyInterpolation initialInterpolationSetting;
+    private LineRenderer lineRenderer;
 
     private void Start()
     {
         lineRenderer = this.gameObject.GetComponent<LineRenderer>();
-        lineRenderer.startColor = Color.white;
-        lineRenderer.endColor = Color.white;
         lineRenderer.startWidth = 0.01f;
         lineRenderer.endWidth = 0.01f;
         lineRenderer.positionCount = 2;
         lineRenderer.useWorldSpace = true;
     }
 
-    void Update()
+    private void Update()
     {
         if (!Input.GetMouseButton(0))
         {
@@ -43,7 +41,7 @@ public class HookSystem : MonoBehaviour
         // We are not holding an object
         if (rigidbody == null)
         {
-            Ray ray = CenterRay();
+            Ray ray = Camera.main.ViewportPointToRay(Vector3.one * 0.5f);
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit, maxGrabDistance))
@@ -74,7 +72,8 @@ public class HookSystem : MonoBehaviour
         // We are holding an object
         if (rigidbody)
         {
-            Ray ray = CenterRay();
+            //We place the object in the space in relation with the camera position 
+            Ray ray = Camera.main.ViewportPointToRay(Vector3.one * 0.5f);
             rigidbody.MoveRotation(Quaternion.Euler(rotationDifferenceEuler + transform.rotation.eulerAngles));
             Vector3 holdPoint = ray.GetPoint(currentGrabDistance);
             Vector3 currentEuler = rigidbody.rotation.eulerAngles;
@@ -89,13 +88,9 @@ public class HookSystem : MonoBehaviour
             rigidbody.velocity = Vector3.zero;
             rigidbody.AddForce(force, ForceMode.VelocityChange);
 
-            lineRenderer.SetPosition(0, new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z)); //x,y and z position of the starting point of the line
+            //Now we draw the web
+            lineRenderer.SetPosition(0, new Vector3(player.transform.position.x, player.transform.position.y + 0.1f, player.transform.position.z)); //x,y and z position of the starting point of the line
             lineRenderer.SetPosition(1, new Vector3(rigidbody.gameObject.transform.position.x, rigidbody.gameObject.transform.position.y, rigidbody.gameObject.transform.position.z)); //x,y and z position of the end point of the line
         }
-    }
-
-    private Ray CenterRay()
-    {
-        return Camera.main.ViewportPointToRay(Vector3.one * 0.5f);
     }
 }

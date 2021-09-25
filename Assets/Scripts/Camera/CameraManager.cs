@@ -4,8 +4,6 @@ using System.Collections.Generic;
 
 public class CameraManager : MonoBehaviour
 {
-    private Camera cam;
-
     //Variables of the Camera Movement
     public float sensitivityX = 5.0f;
     public float sensitivityY = 5.0f;
@@ -14,20 +12,23 @@ public class CameraManager : MonoBehaviour
     public float minimumY = 0.0f;
     public float maximumY = 620.0f;
     public float frameCounter = 5.0f;
-    float rotationX = 0.0f;
-    float rotationY = 0.0f;
-    float rotAverageX = 0.0f;
-    float rotAverageY = 0.0f;
+
+    private float rotationX = 0.0f;
+    private float rotationY = 0.0f;
+    private float rotAverageX = 0.0f;
+    private float rotAverageY = 0.0f;
     private List<float> rotArrayX = new List<float>();
     private List<float> rotArrayY = new List<float>();
-    Quaternion originalRotation;
+    private Quaternion originalRotation;
 
     //Variables of the Camera Zooming
     public float zoomMultiplier = 2.0f;
     public float defaultFov = 80.0f;
     public float zoomDuration = 0.5f;
+    
+    private Camera cam;
 
-    void Start()
+    private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         cam = this.gameObject.GetComponent<Camera>();
@@ -37,7 +38,7 @@ public class CameraManager : MonoBehaviour
         originalRotation = transform.localRotation;
     }
 
-    void Update()
+    private void Update()
     {
         Cursor.visible = true;
         if (Input.GetMouseButton(1))
@@ -86,7 +87,7 @@ public class CameraManager : MonoBehaviour
         }
     }
 
-    public static float ClampAngle(float angle, float min, float max)
+    public float ClampAngle(float angle, float min, float max)
     {
         angle = angle % 360;
         if ((angle >= -360.0f) && (angle <= 360.0f))
@@ -103,7 +104,7 @@ public class CameraManager : MonoBehaviour
         return Mathf.Clamp(angle, min, max);
     }
 
-    void ZoomCamera(float target)
+    private void ZoomCamera(float target)
     {
         float angle = Mathf.Abs((defaultFov / zoomMultiplier) - defaultFov);
         cam.fieldOfView = Mathf.MoveTowards(cam.fieldOfView, target, angle / zoomDuration * Time.deltaTime);

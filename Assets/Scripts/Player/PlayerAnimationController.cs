@@ -5,20 +5,21 @@ using UnityEngine;
 public class PlayerAnimationController : MonoBehaviour
 {
     public Transform[] legTargets;
-    private float stepSize = 0.15f;
+
     private int smoothness = 4;
+    private int nbLegs;
+    private float stepSize = 0.15f;
     private float stepHeight = 0.15f;
     private float sphereCastRadius = 0.125f;
     private float raycastRange = 1.5f;
+    private float velocityMultiplier = 15.0f;
+    private bool[] legMoving;
     private Vector3[] defaultLegPositions;
     private Vector3[] lastLegPositions;
     private Vector3 lastBodyUp;
-    private bool[] legMoving;
-    private int nbLegs;
     private Vector3 velocity;
     private Vector3 lastVelocity;
     private Vector3 lastBodyPos;
-    private float velocityMultiplier = 15.0f;
 
     private void Start()
     {
@@ -87,7 +88,7 @@ public class PlayerAnimationController : MonoBehaviour
         lastBodyPos = transform.position;
     }
 
-    Vector3[] MatchToSurfaceFromAbove(Vector3 point, float halfRange, Vector3 up)
+    private Vector3[] MatchToSurfaceFromAbove(Vector3 point, float halfRange, Vector3 up)
     {
         Vector3[] res = new Vector3[2];
         res[1] = Vector3.zero;
@@ -107,7 +108,7 @@ public class PlayerAnimationController : MonoBehaviour
     }
 
     //This funtion allows leg movement
-    IEnumerator PerformStep(int index, Vector3 targetPoint)
+    private IEnumerator PerformStep(int index, Vector3 targetPoint)
     {
         Vector3 startPos = lastLegPositions[index];
         for (int i = 1; i <= smoothness; ++i)
@@ -128,9 +129,7 @@ public class PlayerAnimationController : MonoBehaviour
         for (int i = 0; i < nbLegs; ++i)
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(legTargets[i].position, 0.02f);
-            Gizmos.color = Color.green;
-            Gizmos.DrawWireSphere(transform.TransformPoint(defaultLegPositions[i]), stepSize);
+            Gizmos.DrawWireSphere(legTargets[i].position, 0.05f);
         }
     }
 

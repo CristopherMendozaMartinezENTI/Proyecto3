@@ -68,25 +68,6 @@ public class PlayerController : MonoBehaviour
         lastRot = transform.rotation;
     }
 
-    Vector3[] GetIcoSphereCoords(int depth)
-    {
-        Vector3[] res = new Vector3[(int)Mathf.Pow(4, depth) * 12];
-        float t = (1f + Mathf.Sqrt(5f)) / 2f;
-        res[0] = (new Vector3(t, 1, 0));
-        res[1] = (new Vector3(-t, -1, 0));
-        res[2] = (new Vector3(-1, 0, t));
-        res[3] = (new Vector3(0, -t, 1));
-        res[4] = (new Vector3(-t, 1, 0));
-        res[5] = (new Vector3(1, 0, t));
-        res[6] = (new Vector3(-1, 0, -t));
-        res[7] = (new Vector3(0, t, -1));
-        res[8] = (new Vector3(t, -1, 0));
-        res[9] = (new Vector3(1, 0, -t));
-        res[10] = (new Vector3(0, t, 1));
-        res[11] = (new Vector3(0, -t, -1));
-        return res;
-    }
-
     static Vector3[] GetClosestPoint(Vector3 point, Vector3 forward, Vector3 up, float halfRange, float eccentricity, float offset1, float offset2, int rayAmount)
     {
         Vector3[] res = new Vector3[2] { point, up };
