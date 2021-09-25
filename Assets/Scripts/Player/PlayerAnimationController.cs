@@ -115,7 +115,6 @@ public class PlayerAnimationController : MonoBehaviour
         {
             legTargets[index].position = Vector3.Lerp(startPos, targetPoint, i / (float)(smoothness + 1.0f));
             legTargets[index].position += transform.up * Mathf.Sin(i / (float)(smoothness + 1.0f) * Mathf.PI) * stepHeight;
-            Debug.Log("Pierna se ha movido");
             yield return new WaitForFixedUpdate();
         }
         legTargets[index].position = targetPoint;

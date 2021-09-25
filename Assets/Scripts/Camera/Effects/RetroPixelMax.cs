@@ -22,11 +22,6 @@ namespace Assets.Scripts.Cam.Effects {
 			}
 		}
 
-		private void Start() {
-			if (!SystemInfo.supportsImageEffects)
-				enabled = false;
-		}
-
 		public void OnRenderImage(RenderTexture src, RenderTexture dest) {
 			if (material && colors.Length > 0) {
 				material.SetInt("_ColorCount", colors.Length);

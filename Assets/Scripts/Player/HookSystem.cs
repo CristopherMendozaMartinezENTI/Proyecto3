@@ -28,11 +28,11 @@ public class HookSystem : MonoBehaviour
     {
         if (!Input.GetMouseButton(0))
         {
+            // Reset the rigidbody to how it was before we grabbed it
             if (rigidbody != null)
             {
-                // Reset the rigidbody to how it was before we grabbed it
                 rigidbody.interpolation = initialInterpolationSetting;
-
+                rigidbody.transform.gameObject.GetComponent<MeshRenderer>().material.DisableKeyword("_EMISSION");
                 rigidbody = null;
             }
             return;
@@ -54,7 +54,8 @@ public class HookSystem : MonoBehaviour
                     hitOffsetLocal = hit.transform.InverseTransformVector(hit.point - hit.transform.position);
                     currentGrabDistance = Vector3.Distance(ray.origin, hit.point);
                     rigidbody.interpolation = RigidbodyInterpolation.Interpolate;
-                }
+                    rigidbody.gameObject.GetComponent<MeshRenderer>().material.EnableKeyword("_EMISSION");
+                }  
             }
         }
         else
@@ -89,8 +90,8 @@ public class HookSystem : MonoBehaviour
             rigidbody.AddForce(force, ForceMode.VelocityChange);
 
             //Now we draw the web
-            lineRenderer.SetPosition(0, new Vector3(player.transform.position.x, player.transform.position.y + 0.1f, player.transform.position.z)); //x,y and z position of the starting point of the line
-            lineRenderer.SetPosition(1, new Vector3(rigidbody.gameObject.transform.position.x, rigidbody.gameObject.transform.position.y, rigidbody.gameObject.transform.position.z)); //x,y and z position of the end point of the line
+            lineRenderer.SetPosition(0, new Vector3(player.transform.position.x, player.transform.position.y + 0.1f, player.transform.position.z)); 
+            lineRenderer.SetPosition(1, new Vector3(rigidbody.gameObject.transform.position.x, rigidbody.gameObject.transform.position.y, rigidbody.gameObject.transform.position.z)); 
         }
     }
 }
