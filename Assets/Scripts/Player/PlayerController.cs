@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        velocity = (smoothness * velocity + (transform.position - lastPosition)) / (1f + smoothness);
+        velocity = (smoothness * velocity + (transform.position - lastPosition)) / (1.0f + smoothness);
         if (velocity.magnitude < 0.00025f)
             velocity = lastVelocity;
         lastPosition = transform.position;
