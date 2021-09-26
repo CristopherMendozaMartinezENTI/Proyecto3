@@ -6,6 +6,7 @@ public class CubeManager : MonoBehaviour
 {
     public string defaultMaterial;
     public string onHookMaterial;
+    public bool worksBackwards;
     private MeshRenderer mesh;
     private Outline objectOutline;
     private Material defaultM;
@@ -13,7 +14,6 @@ public class CubeManager : MonoBehaviour
     private bool isGrabbed;
     private bool outlineIsEnable;
 
-    // Start is called before the first frame update
     private void Start()
     {
         mesh = this.gameObject.GetComponent<MeshRenderer>();
@@ -24,7 +24,19 @@ public class CubeManager : MonoBehaviour
         isGrabbed = false;
     }
 
-    // Update is called once per frame
+    private void FixedUpdate()
+    {
+        if (worksBackwards)
+        {
+            this.gameObject.GetComponent<Rigidbody>().useGravity = false;
+            this.gameObject.GetComponent<Rigidbody>().AddForce(-Physics.gravity, ForceMode.Acceleration);
+        }
+        else
+        {
+            this.gameObject.GetComponent<Rigidbody>().useGravity = true;
+        }
+    }
+
     private void Update()
     {
         if(isGrabbed)
@@ -36,6 +48,7 @@ public class CubeManager : MonoBehaviour
             mesh.material = defaultM;
         }
     }
+
 
     public void isGrabbedNow()
     { isGrabbed = true; }
