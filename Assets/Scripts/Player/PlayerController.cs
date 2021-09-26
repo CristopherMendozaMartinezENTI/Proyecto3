@@ -90,21 +90,28 @@ public class PlayerController : MonoBehaviour
             RaycastHit hit;
             Vector3 largener = Vector3.ProjectOnPlane(dir, up);
             Ray ray = new Ray(point - (dir + largener) * halfRange + largener.normalized * offset1 / 100f, dir);
-         
+            
             if (Physics.SphereCast(ray, 0.01f, out hit, 2f * halfRange))
             {
-                res[0] += hit.point;
-                res[1] += hit.normal;
-                normalAmount += 1;
-                positionAmount += 1;
+                if(hit.transform.gameObject.tag == "Obstacle")
+                {
+                    res[0] += hit.point;
+                    res[1] += hit.normal;
+                    normalAmount += 1;
+                    positionAmount += 1;
+                }
             }
             ray = new Ray(point - (dir + largener) * halfRange + largener.normalized * offset2 / 100f, dir);
             if (Physics.SphereCast(ray, 0.01f, out hit, 2f * halfRange))
             {
-                res[0] += hit.point;
-                res[1] += hit.normal;
-                normalAmount += 1;
-                positionAmount += 1;
+                if (hit.transform.gameObject.tag == "Obstacle")
+                {
+                    res[0] += hit.point;
+                    res[1] += hit.normal;
+                    normalAmount += 1;
+                    positionAmount += 1;
+                }
+
             }
         }
         res[0] /= positionAmount;

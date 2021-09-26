@@ -11,6 +11,7 @@ public class CubeManager : MonoBehaviour
     private Material defaultM;
     private Material onHookM;
     private bool isGrabbed;
+    private bool outlineIsEnable;
 
     // Start is called before the first frame update
     private void Start()
@@ -37,12 +38,14 @@ public class CubeManager : MonoBehaviour
     }
 
     public void isGrabbedNow()
-    {
-        isGrabbed = true;
-    }
+    { isGrabbed = true; }
 
     public void isNotGrabbedNow()
-    {
-        isGrabbed = false;
-    }
+    { isGrabbed = false; }
+
+    public void enableOutline() { objectOutline.enabled = true;}
+
+    public void disableOutline() { objectOutline.enabled = false; }
+
+    public bool outlineState() { return objectOutline.enabled; }
 }
