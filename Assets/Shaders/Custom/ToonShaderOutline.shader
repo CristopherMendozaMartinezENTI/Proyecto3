@@ -1,5 +1,4 @@
-
-Shader "TSF/BaseOutline1"
+Shader "Custom/BaseOutline1"
 {
     Properties 
     {
@@ -23,7 +22,7 @@ Shader "TSF/BaseOutline1"
         Lighting Off
         Fog { Mode Off }
         
-        UsePass "TSF/Base1/BASE"
+        UsePass "Custom/Base1/BASE"
         	
         Pass
         {

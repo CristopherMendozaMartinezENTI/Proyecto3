@@ -1,4 +1,4 @@
-Shader "Oxysoft/RetroPixelMax" {
+Shader "Custom/RetroPixelMax" {
 	Properties {
 		_ColorCount ("Color Count", Int) = 8
 	 	_MainTex ("", 2D) = "white" {}

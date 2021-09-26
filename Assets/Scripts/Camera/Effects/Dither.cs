@@ -18,7 +18,7 @@ namespace Assets.Scripts.Cam.Effects {
 		private Material material {
 			get {
 				if (m_material == null) {
-					shader = Shader.Find("Oxysoft/Dither");
+					shader = Shader.Find("Custom/Dither");
 					m_material = new Material(shader) {hideFlags = HideFlags.DontSave};
 				}
 

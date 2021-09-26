@@ -14,7 +14,7 @@ namespace Assets.Scripts.Cam.Effects {
 		private Material material {
 			get {
 				if (m_material == null) {
-					shader = Shader.Find("Oxysoft/RetroPixelMax");
+					shader = Shader.Find("Custom/RetroPixelMax");
 					m_material = new Material(shader) {hideFlags = HideFlags.DontSave};
 				}
 

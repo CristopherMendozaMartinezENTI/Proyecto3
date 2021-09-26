@@ -1,4 +1,4 @@
-Shader "Oxysoft/Dither" {
+Shader "Custom/Dither" {
 	Properties {
 		_Threshold ("Threshold", Float) = 0.45
 		_Strength ("Strength", Float) = 0.45

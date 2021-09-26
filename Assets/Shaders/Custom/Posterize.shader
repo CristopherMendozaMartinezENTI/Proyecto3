@@ -1,4 +1,4 @@
-Shader "Oxysoft/Posterize" {
+Shader "Custom/Posterize" {
 	Properties {
 		_Red ("Red", Int) = 8
 		_Green ("Green", Int) = 8

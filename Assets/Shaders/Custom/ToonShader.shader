@@ -1,4 +1,4 @@
-Shader "TSF/Base1" 
+Shader "Custom/Base1" 
 {
     Properties 
     {
