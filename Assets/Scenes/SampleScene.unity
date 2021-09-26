@@ -11038,7 +11038,7 @@ GameObject:
   - component: {fileID: 1050474536}
   - component: {fileID: 1050474542}
   - component: {fileID: 1050474541}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rigid Cube
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -11053,7 +11053,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1050474535}
   serializedVersion: 2
-  m_Mass: 100
+  m_Mass: 0.0000001
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 1
@@ -13904,11 +13904,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4511282862961232, guid: cf2b180cac3506c4a9a0ab45fe990065, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4511282862961232, guid: cf2b180cac3506c4a9a0ab45fe990065, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.97
+      value: 0.72
       objectReference: {fileID: 0}
     - target: {fileID: 4511282862961232, guid: cf2b180cac3506c4a9a0ab45fe990065, type: 3}
       propertyPath: m_LocalPosition.y
