@@ -21,7 +21,7 @@ public class PartnerManager : MonoBehaviour
         {
             foreach(GameObject collectible in collectables)
             {
-                //collectible.SetActive(true);
+                collectible.GetComponent<Outline>().enabled = true;
             }
             partner.gameObject.GetComponent<Animator>().Play("Cast Spell");
         }
@@ -30,7 +30,7 @@ public class PartnerManager : MonoBehaviour
         {
             foreach (GameObject collectible in collectables)
             {
-                //collectible.SetActive(false);
+                collectible.GetComponent<Outline>().enabled = false;
             }
             partner.gameObject.GetComponent<Animator>().Play("Idle");
         }
