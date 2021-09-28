@@ -4528,8 +4528,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotate: 1
-  rezise: 0
-  speed: 2
+  resize: 0
+  rotationSpeed: 1
+  minScale: 0
+  maxScale: 0
 --- !u!114 &348444032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14243,8 +14245,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotate: 1
-  rezise: 0
-  speed: 2
+  resize: 0
+  rotationSpeed: 1
+  minScale: 0
+  maxScale: 0
 --- !u!114 &1179176616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14534,8 +14538,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotate: 1
-  rezise: 0
-  speed: 2
+  resize: 0
+  rotationSpeed: 1
+  minScale: 0
+  maxScale: 0
 --- !u!1001 &1203900999
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15438,8 +15444,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotate: 1
-  rezise: 0
-  speed: 2
+  resize: 0
+  rotationSpeed: 1
+  minScale: 0
+  maxScale: 0
 --- !u!1001 &1261115833
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17901,8 +17909,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotate: 1
-  rezise: 0
-  speed: 2
+  resize: 0
+  rotationSpeed: 1
+  minScale: 0
+  maxScale: 0
 --- !u!1001 &1437301671
 PrefabInstance:
   m_ObjectHideFlags: 0
