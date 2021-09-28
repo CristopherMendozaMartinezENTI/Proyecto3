@@ -4527,6 +4527,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31bdf94faee90db4f91f5a9c87860b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotate: 1
+  rezise: 0
   speed: 2
 --- !u!114 &348444032
 MonoBehaviour:
@@ -14240,6 +14242,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31bdf94faee90db4f91f5a9c87860b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotate: 1
+  rezise: 0
   speed: 2
 --- !u!114 &1179176616
 MonoBehaviour:
@@ -14529,6 +14533,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31bdf94faee90db4f91f5a9c87860b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotate: 1
+  rezise: 0
   speed: 2
 --- !u!1001 &1203900999
 PrefabInstance:
@@ -15431,6 +15437,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31bdf94faee90db4f91f5a9c87860b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotate: 1
+  rezise: 0
   speed: 2
 --- !u!1001 &1261115833
 PrefabInstance:
@@ -17892,6 +17900,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31bdf94faee90db4f91f5a9c87860b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotate: 1
+  rezise: 0
   speed: 2
 --- !u!1001 &1437301671
 PrefabInstance:
