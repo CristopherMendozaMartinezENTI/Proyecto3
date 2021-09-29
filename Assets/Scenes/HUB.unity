@@ -8213,7 +8213,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 47.389, y: -151.659, z: 225.51}
 --- !u!1001 &705538704
 PrefabInstance:
@@ -14417,28 +14417,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4562075604489022, guid: 1b8fbee291cdc1046a281cb2b3b51bf7, type: 3}
   m_PrefabInstance: {fileID: 1227193607}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1230269248 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1749491130324316945, guid: 9b304de1139b1de4eb2983308c9a6ef0, type: 3}
-  m_PrefabInstance: {fileID: 7956596726280381669}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1230269251
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1230269248}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8fecb6721935e5469628585fd064711, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 2
-  outlineColor: {r: 0, g: 0, b: 0, a: 1}
-  outlineWidth: 2
-  bakeKeys: []
-  bakeValues: []
 --- !u!1001 &1235506688
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20321,28 +20299,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4562075604489022, guid: 1b8fbee291cdc1046a281cb2b3b51bf7, type: 3}
   m_PrefabInstance: {fileID: 1609441865}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1612591542 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7956596726777595974, guid: 9b304de1139b1de4eb2983308c9a6ef0, type: 3}
-  m_PrefabInstance: {fileID: 7956596726280381669}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1612591545
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1612591542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8fecb6721935e5469628585fd064711, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 2
-  outlineColor: {r: 0, g: 0, b: 0, a: 1}
-  outlineWidth: 2
-  bakeKeys: []
-  bakeValues: []
 --- !u!1001 &1614157636
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21171,8 +21127,8 @@ Transform:
   m_LocalPosition: {x: 0.59000003, y: 2.63, z: -3.7399998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1644684599}
   - {fileID: 1476972460}
+  - {fileID: 1644684599}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -23176,7 +23132,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: -19.842, y: -19.979, z: 30.894}
 --- !u!1001 &1800801677
 PrefabInstance:
@@ -27112,6 +27068,10 @@ PrefabInstance:
     - target: {fileID: 1749491130324316946, guid: 9b304de1139b1de4eb2983308c9a6ef0, type: 3}
       propertyPath: collectables.Array.data[4]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3500844134713135882, guid: 9b304de1139b1de4eb2983308c9a6ef0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.85
       objectReference: {fileID: 0}
     - target: {fileID: 7956596726393891135, guid: 9b304de1139b1de4eb2983308c9a6ef0, type: 3}
       propertyPath: m_LocalPosition.x

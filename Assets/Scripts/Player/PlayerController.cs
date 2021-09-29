@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
         forward = transform.forward;
         upward = transform.up;
         lastRot = transform.rotation;
+        lastPosition = transform.position;
     }
 
     private void FixedUpdate()
@@ -33,20 +34,20 @@ public class PlayerController : MonoBehaviour
             velocity = lastVelocity;
         lastPosition = transform.position;
         lastVelocity = velocity;
-        float multiplier = 1.0f;
+        float speedMultiplier = 1.0f;
     
         //Run
         if (Input.GetKey(KeyCode.LeftShift))
-            multiplier = 2.0f;
+            speedMultiplier = 2.0f;
 
         //Move Around
         float valueY = Input.GetAxis("Vertical");
         if (valueY != 0)
-            transform.position += transform.forward * valueY * speed * multiplier * Time.fixedDeltaTime;
+            transform.position += transform.forward * valueY * speed * speedMultiplier * Time.fixedDeltaTime;
 
         float valueX = Input.GetAxis("Horizontal");
         if (valueX != 0)
-            transform.position += Vector3.Cross(transform.up, transform.forward) * valueX * speed * multiplier * Time.fixedDeltaTime;
+            transform.position += Vector3.Cross(transform.up, transform.forward) * valueX * speed * speedMultiplier * Time.fixedDeltaTime;
 
         if (valueX != 0 || valueY != 0)
         {
