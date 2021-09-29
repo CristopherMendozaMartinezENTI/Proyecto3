@@ -16,15 +16,12 @@ public class PlayerAnimationController : MonoBehaviour
     private bool[] legMoving;
     private Vector3[] defaultLegPositions;
     private Vector3[] lastLegPositions;
-    private Vector3 lastBodyUp;
     private Vector3 velocity;
     private Vector3 lastVelocity;
     private Vector3 lastBodyPos;
 
     private void Start()
     {
-        lastBodyUp = transform.up;
-
         nbLegs = legTargets.Length;
         defaultLegPositions = new Vector3[nbLegs];
         lastLegPositions = new Vector3[nbLegs];
