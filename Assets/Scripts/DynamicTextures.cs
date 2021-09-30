@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RotateIcon : MonoBehaviour
+public class DynamicTextures : MonoBehaviour
 {
     public bool rotate;
     public bool resize;

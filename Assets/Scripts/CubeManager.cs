@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum GravitationalForce { Up, Down, Left, Right }; 
+
 public class CubeManager : MonoBehaviour
 {
     public string defaultMaterial;
     public string onHookMaterial;
-    public bool worksBackwards;
+    public  GravitationalForce gravityOrientation; 
     private MeshRenderer mesh;
     private Outline objectOutline;
     private Material defaultM;
@@ -26,14 +28,23 @@ public class CubeManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (worksBackwards)
+        switch(gravityOrientation)
         {
-            this.gameObject.GetComponent<Rigidbody>().useGravity = false;
-            this.gameObject.GetComponent<Rigidbody>().AddForce(-Physics.gravity, ForceMode.Acceleration);
-        }
-        else
-        {
-            this.gameObject.GetComponent<Rigidbody>().useGravity = true;
+            case GravitationalForce.Up:
+                gameObject.GetComponent<Rigidbody>().useGravity = false;
+                gameObject.GetComponent<Rigidbody>().AddForce(-Physics.gravity, ForceMode.Acceleration);
+                return;
+            case GravitationalForce.Down:
+                gameObject.GetComponent<Rigidbody>().useGravity = true;
+                return;
+            case GravitationalForce.Left:
+                gameObject.GetComponent<Rigidbody>().useGravity = false;
+                gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(9.81f, 0.0f, 0.0f), ForceMode.Acceleration);
+                return;
+            case GravitationalForce.Right:
+                gameObject.GetComponent<Rigidbody>().useGravity = false;
+                gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(-9.81f, 0.0f, 0.0f), ForceMode.Acceleration);
+                return;
         }
     }
 
@@ -48,7 +59,6 @@ public class CubeManager : MonoBehaviour
             mesh.material = defaultM;
         }
     }
-
 
     public void isGrabbedNow()
     { isGrabbed = true; }

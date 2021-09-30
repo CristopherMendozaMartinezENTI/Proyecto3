@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     private float speed = 3.0f;
     private float smoothness = 5.0f;
-    private int raysNb = 4;
+    private int numberOfRays = 4;
     private float raysEccentricity = 0.2f;
     private float outerRaysOffset = 10.0f;
     private float innerRaysOffset = 25.0f;
@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
         {
             pn = getClosestPoint(transform.position, transform.forward, transform.up, 0.5f, 0.2f, 30, -30, 4);
             upward = pn[1];
-            Vector3[] pos = getClosestPoint(transform.position, transform.forward, transform.up, 0.5f, raysEccentricity, innerRaysOffset, outerRaysOffset, raysNb);
+            Vector3[] pos = getClosestPoint(transform.position, transform.forward, transform.up, 0.5f, raysEccentricity, innerRaysOffset, outerRaysOffset, numberOfRays);
             transform.position = Vector3.Lerp(lastPosition, pos[0], 1.0f / (1.0f + smoothness));
             forward = velocity.normalized;
             Quaternion q = Quaternion.LookRotation(forward, upward);

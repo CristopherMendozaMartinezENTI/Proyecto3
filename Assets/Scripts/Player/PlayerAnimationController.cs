@@ -7,7 +7,7 @@ public class PlayerAnimationController : MonoBehaviour
     public Transform[] legTargets;
 
     private int smoothness = 4;
-    private int nbLegs;
+    private int numberOfLegs;
     private float stepSize = 0.15f;
     private float stepHeight = 0.15f;
     private float sphereCastRadius = 0.125f;
@@ -22,11 +22,11 @@ public class PlayerAnimationController : MonoBehaviour
 
     private void Start()
     {
-        nbLegs = legTargets.Length;
-        defaultLegPositions = new Vector3[nbLegs];
-        lastLegPositions = new Vector3[nbLegs];
-        legMoving = new bool[nbLegs];
-        for (int i = 0; i < nbLegs; ++i)
+        numberOfLegs = legTargets.Length;
+        defaultLegPositions = new Vector3[numberOfLegs];
+        lastLegPositions = new Vector3[numberOfLegs];
+        legMoving = new bool[numberOfLegs];
+        for (int i = 0; i < numberOfLegs; ++i)
         {
             defaultLegPositions[i] = legTargets[i].localPosition;
             lastLegPositions[i] = legTargets[i].position;
@@ -45,10 +45,10 @@ public class PlayerAnimationController : MonoBehaviour
         else
             lastVelocity = velocity;
         
-        Vector3[] desiredPositions = new Vector3[nbLegs];
+        Vector3[] desiredPositions = new Vector3[numberOfLegs];
         int indexToMove = -1;
         float maxDistance = stepSize;
-        for (int i = 0; i < nbLegs; ++i)
+        for (int i = 0; i < numberOfLegs; ++i)
         {
             desiredPositions[i] = transform.TransformPoint(defaultLegPositions[i]);
 
@@ -59,7 +59,7 @@ public class PlayerAnimationController : MonoBehaviour
                 indexToMove = i;
             }
         }
-        for (int i = 0; i < nbLegs; ++i)
+        for (int i = 0; i < numberOfLegs; ++i)
             if (i != indexToMove)
                 legTargets[i].position = lastLegPositions[i];
 
@@ -122,7 +122,7 @@ public class PlayerAnimationController : MonoBehaviour
     //HAY TENER EL GIZMO SIEMPRE ACTIVO AL DEBUGGAR POR FAVOR QUE NO SE TE OLVIDE!!!!!!!!!!!
     private void OnDrawGizmos()
     {
-        for (int i = 0; i < nbLegs; ++i)
+        for (int i = 0; i < numberOfLegs; ++i)
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(legTargets[i].position, 0.05f);
