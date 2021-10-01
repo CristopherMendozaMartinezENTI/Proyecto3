@@ -15,7 +15,7 @@ public class ImageFader : MonoBehaviour
     private FadeType fadeType;
     [SerializeField]
     private RawImage img;
-    private float fadeSpeed;
+    public float fadeSpeed = 5.0f;
 
     public void OnEnable()
     {

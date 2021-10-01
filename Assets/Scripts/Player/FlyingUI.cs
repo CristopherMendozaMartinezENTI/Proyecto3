@@ -15,8 +15,6 @@ public class FlyingUI : MonoBehaviour
     private void Start()
     {
         playerCam = mouseFlight.GetComponentInChildren<Camera>();
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false; 
     }
 
     private void Update()
@@ -27,6 +25,6 @@ public class FlyingUI : MonoBehaviour
     private void UpdateUI(FlyController controller)
     {
         mousePos.position = playerCam.WorldToScreenPoint(controller.MouseAimPos);
-        mousePos.gameObject.SetActive(mousePos.position.z > 1f);
+        mousePos.gameObject.SetActive(mousePos.position.z > 1.0f);
     }
 }

@@ -15,11 +15,9 @@ public class FlyController : MonoBehaviour
     private Transform cam = null;
 
     [Header("Options")]
-    [SerializeField]
-    private float camSmoothSpeed = 5f;
+    private float camSmoothSpeed = 5.0f;
     [SerializeField] 
-    private float mouseSensitivity = 3f;
-
+    private float mouseSensitivity = 3.0f;
     private float aimDistance = 500f;
     private Vector3 frozenDirection = Vector3.forward;
     private bool isMouseAimFrozen = false;
@@ -27,6 +25,8 @@ public class FlyController : MonoBehaviour
     private void Start()
     {
         transform.parent = null;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     private void Update()

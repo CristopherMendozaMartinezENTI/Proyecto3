@@ -14,6 +14,7 @@ public class MenuManager : MonoBehaviour
             StartCoroutine(GameObject.FindObjectOfType<SceneFader>().FadeAndLoadScene(SceneFader.FadeDirection.In, sceneName));
         }
 
+        //Test Area
         if (Input.GetKey(KeyCode.T))
         {
             StartCoroutine(GameObject.FindObjectOfType<SceneFader>().FadeAndLoadScene(SceneFader.FadeDirection.In, "Test Area"));

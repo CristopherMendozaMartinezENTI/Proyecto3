@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Test Area.unity
     guid: 58bc1ace74f062042955540c2b85d443
+  - enabled: 1
+    path: Assets/Scenes/Flying Demo.unity
+    guid: 51f41bcfe48634849b96fefcaebe01c5
   m_configObjects: {}

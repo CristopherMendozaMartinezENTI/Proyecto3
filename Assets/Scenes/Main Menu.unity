@@ -11982,7 +11982,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeType: 1
   img: {fileID: 512575828}
-  fadeSpeed: 6
+  fadeSpeed: 5
 --- !u!1001 &512847393
 PrefabInstance:
   m_ObjectHideFlags: 0
