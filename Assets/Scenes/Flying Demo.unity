@@ -1211,14 +1211,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 114412279917838310}
-  thrust: 5
-  turnTorque: {x: 1, y: 1, z: 1}
-  forceMult: 10
   sensitivity: 1
   aggressiveTurnAngle: 90
-  pitch: 0
-  yaw: 0
-  roll: 0
 --- !u!114 &114412279917838310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1231,15 +1225,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9396f98894f2da47b58c709d5591ad8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aircraft: {fileID: 4563114451573410}
+  target: {fileID: 4563114451573410}
   mouseAim: {fileID: 4145332501450166}
   cameraRig: {fileID: 4543349483637654}
   cam: {fileID: 4696853951868904}
-  useFixed: 1
+  useFixed: 0
   camSmoothSpeed: 5
   mouseSensitivity: 1
-  aimDistance: 500
-  showDebugInfo: 0
 --- !u!114 &114479941049576799
 MonoBehaviour:
   m_ObjectHideFlags: 0

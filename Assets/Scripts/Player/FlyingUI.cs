@@ -12,16 +12,9 @@ public class FlyingUI : MonoBehaviour
 
     private Camera playerCam = null;
 
-    private void Awake()
+    private void Start()
     {
-        if (mouseFlight == null)
-            Debug.LogError(name + ": Hud - Mouse Flight Controller not assigned!");
-
         playerCam = mouseFlight.GetComponentInChildren<Camera>();
-
-        if (playerCam == null)
-            Debug.LogError(name + ": Hud - No camera found on assigned Mouse Flight Controller!");
-
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false; 
     }
@@ -31,12 +24,11 @@ public class FlyingUI : MonoBehaviour
         if (mouseFlight == null || playerCam == null)
             return;
 
-        UpdateGraphics(mouseFlight);
+        UpdateUI(mouseFlight);
     }
 
-    private void UpdateGraphics(FlyController controller)
+    private void UpdateUI(FlyController controller)
     {
-
         if (mousePos != null)
         {
             mousePos.position = playerCam.WorldToScreenPoint(controller.MouseAimPos);

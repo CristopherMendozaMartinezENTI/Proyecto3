@@ -11,13 +11,11 @@ public enum FadeType
 
 public class ImageFader : MonoBehaviour
 {
-    [Tooltip("The Fade Type")]
-    [SerializeField] private FadeType fadeType;
-
-    [Tooltip("Here you asign the image you want to fade")]
-    [SerializeField] RawImage img;
-
-    public float fadeSpeed;
+    [SerializeField] 
+    private FadeType fadeType;
+    [SerializeField]
+    private RawImage img;
+    private float fadeSpeed;
 
     public void OnEnable()
     {
