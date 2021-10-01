@@ -30,6 +30,7 @@ public class CameraManager : MonoBehaviour
 
     private void Start()
     {
+        Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         cam = this.gameObject.GetComponent<Camera>();
         Rigidbody rb = GetComponent<Rigidbody>();
@@ -40,7 +41,6 @@ public class CameraManager : MonoBehaviour
 
     private void Update()
     {
-        Cursor.visible = true;
         if (Input.GetMouseButton(1))
         {
             zoomCamera(defaultFov / zoomMultiplier);
