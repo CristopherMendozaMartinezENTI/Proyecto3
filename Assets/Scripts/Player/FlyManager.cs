@@ -6,30 +6,31 @@ using UnityEngine;
 public class FlyManager : MonoBehaviour
 {
     [Header("Components")]
-    [SerializeField] 
-    private FlyController controller = null;
-    private float fowardForce = 10.0f;
-    private float forceMult = 20.0f;
-    private float aggressiveTurnAngle = 90.0f;
+    public FlyController controller = null;
+    public float fowardForce = 0.0f;
+    public float forceMult = 0.0f;
+    public float turnAngle = 90.0f;
+    public float sensitivity = 1.0f;
+    private float currentFowardForce = 0.0f;
     private float pitch = 0.0f;
     private float yaw = 0.0f;
     private float roll = 0.0f;
     private bool rollOverride = false;
     private bool pitchOverride = false;
-    private Vector3 turnTorque = new Vector3(1.0f, 1.0f, 1.0f);
+    public Vector3 turnForce = new Vector3(1.0f, 1.0f, 1.0f);
     private Rigidbody rigid;
-    public float sensitivity = 1.0f;
 
     private void Start()
     {
         rigid = GetComponent<Rigidbody>();
+        currentFowardForce = fowardForce;
     }
 
     private void FixedUpdate()
     {
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            fowardForce = 20.0f;
+            fowardForce = currentFowardForce;
         }
         else
         {
@@ -37,7 +38,7 @@ public class FlyManager : MonoBehaviour
         }
 
         rigid.AddRelativeForce(Vector3.forward * fowardForce * forceMult, ForceMode.Force);
-        rigid.AddRelativeTorque(new Vector3(turnTorque.x * pitch, turnTorque.y * yaw, -turnTorque.z * roll) * forceMult, ForceMode.Force);
+        rigid.AddRelativeTorque(new Vector3(turnForce.x * pitch, turnForce.y * yaw, -turnForce.z * roll) * forceMult, ForceMode.Force);
     }
 
     private void Update()
@@ -61,8 +62,7 @@ public class FlyManager : MonoBehaviour
         float autoYaw = 0.0f;
         float autoPitch = 0.0f;
         float autoRoll = 0.0f;
-        if (controller != null)
-            RunAutopilot(controller.MouseAimPos, out autoYaw, out autoPitch, out autoRoll);
+        RunAutopilot(controller.MouseAimPos, out autoYaw, out autoPitch, out autoRoll);
         yaw = autoYaw;
         pitch = (pitchOverride) ? keyboardPitch : autoPitch;
         roll = (rollOverride) ? keyboardRoll : autoRoll;
@@ -76,7 +76,7 @@ public class FlyManager : MonoBehaviour
         pitch = -Mathf.Clamp(localFlyTarget.y, -1.0f, 1.0f);
         float agressiveRoll = Mathf.Clamp(localFlyTarget.x, -1.0f, 1.0f);
         float wingsLevelRoll = transform.right.y;
-        float wingsLevelInfluence = Mathf.InverseLerp(0f, aggressiveTurnAngle, angleOffTarget);
+        float wingsLevelInfluence = Mathf.InverseLerp(0f, turnAngle, angleOffTarget);
         roll = Mathf.Lerp(wingsLevelRoll, agressiveRoll, wingsLevelInfluence);
     }
 }

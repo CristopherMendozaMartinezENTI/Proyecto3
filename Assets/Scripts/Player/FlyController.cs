@@ -5,19 +5,14 @@ using UnityEngine;
 public class FlyController : MonoBehaviour
 {
     [Header("Components")]
-    [SerializeField]
-    private Transform target = null;
-    [SerializeField]
-    private Transform mouseAim = null;
-    [SerializeField] 
-    private Transform cameraRig = null;
-    [SerializeField]
-    private Transform cam = null;
+    public Transform target = null;
+    public Transform mouseAim = null;
+    public Transform cameraRig = null;
+    public Transform cam = null;
 
     [Header("Options")]
+    public float mouseSensitivity = 1.0f;
     private float camSmoothSpeed = 5.0f;
-    [SerializeField] 
-    private float mouseSensitivity = 3.0f;
     private float aimDistance = 500f;
     private Vector3 frozenDirection = Vector3.forward;
     private bool isMouseAimFrozen = false;
