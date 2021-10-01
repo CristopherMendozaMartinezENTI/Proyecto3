@@ -33,7 +33,7 @@ public class FlyManager : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            fowardForce = 10;
+            fowardForce = 20;
         }
         else
         {

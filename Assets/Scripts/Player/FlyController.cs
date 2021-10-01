@@ -15,8 +15,6 @@ public class FlyController : MonoBehaviour
     private Transform cam = null;
 
     [Header("Options")]
-    [SerializeField] 
-    private bool useFixed = true;
     [SerializeField]
     private float camSmoothSpeed = 5f;
     [SerializeField] 
@@ -26,71 +24,38 @@ public class FlyController : MonoBehaviour
     private Vector3 frozenDirection = Vector3.forward;
     private bool isMouseAimFrozen = false;
 
-    public Vector3 MouseAimPos
-    {
-        get
-        {
-            if (mouseAim != null)
-            {
-                return isMouseAimFrozen
-                    ? GetFrozenMouseAimPos()
-                    : mouseAim.position + (mouseAim.forward * aimDistance);
-            }
-            else
-            {
-                return transform.forward * aimDistance;
-            }
-        }
-    }
-
-    private void Awake()
+    private void Start()
     {
         transform.parent = null;
     }
 
     private void Update()
     {
-        if (useFixed == false)
-            UpdateCameraPos();
-
-        RotateRig();
-    }
-
-    private void FixedUpdate()
-    {
-        if (useFixed == true)
-            UpdateCameraPos();
-    }
-
-    private void RotateRig()
-    {
-        if (mouseAim == null || cam == null || cameraRig == null)
-            return;
-
+        transform.position = target.position;
         if (Input.GetKeyDown(KeyCode.C))
         {
             isMouseAimFrozen = true;
             frozenDirection = mouseAim.forward;
         }
-        else if  (Input.GetKeyUp(KeyCode.C))
+        else if (Input.GetKeyUp(KeyCode.C))
         {
             isMouseAimFrozen = false;
             mouseAim.forward = frozenDirection;
         }
 
-        // Mouse input.
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
         float mouseY = -Input.GetAxis("Mouse Y") * mouseSensitivity;
-
         mouseAim.Rotate(cam.right, mouseY, Space.World);
         mouseAim.Rotate(cam.up, mouseX, Space.World);
-
         Vector3 upVec = (Mathf.Abs(mouseAim.forward.y) > 0.9f) ? cameraRig.up : Vector3.up;
-
-        cameraRig.rotation = Damp(cameraRig.rotation, Quaternion.LookRotation(mouseAim.forward, upVec),camSmoothSpeed, Time.deltaTime);
+        cameraRig.rotation = damp(cameraRig.rotation, Quaternion.LookRotation(mouseAim.forward, upVec), camSmoothSpeed, Time.deltaTime);
+    }
+    private Quaternion damp(Quaternion a, Quaternion b, float lambda, float dt)
+    {
+        return Quaternion.Slerp(a, b, 1 - Mathf.Exp(-lambda * dt));
     }
 
-    private Vector3 GetFrozenMouseAimPos()
+    private Vector3 getFrozenMouseAimPos()
     {
         if (mouseAim != null)
             return mouseAim.position + (frozenDirection * aimDistance);
@@ -98,16 +63,20 @@ public class FlyController : MonoBehaviour
             return transform.forward * aimDistance;
     }
 
-    private void UpdateCameraPos()
+    public Vector3 MouseAimPos
     {
-        if (target != null)
+        get
         {
-            transform.position = target.position;
+            if (mouseAim != null)
+            {
+                return isMouseAimFrozen
+                    ? getFrozenMouseAimPos()
+                    : mouseAim.position + (mouseAim.forward * aimDistance);
+            }
+            else
+            {
+                return transform.forward * aimDistance;
+            }
         }
-    }
-
-    private Quaternion Damp(Quaternion a, Quaternion b, float lambda, float dt)
-    {
-        return Quaternion.Slerp(a, b, 1 - Mathf.Exp(-lambda * dt));
     }
 }

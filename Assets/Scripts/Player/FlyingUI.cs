@@ -21,23 +21,12 @@ public class FlyingUI : MonoBehaviour
 
     private void Update()
     {
-        if (mouseFlight == null || playerCam == null)
-            return;
-
         UpdateUI(mouseFlight);
     }
 
     private void UpdateUI(FlyController controller)
     {
-        if (mousePos != null)
-        {
-            mousePos.position = playerCam.WorldToScreenPoint(controller.MouseAimPos);
-            mousePos.gameObject.SetActive(mousePos.position.z > 1f);
-        }
-    }
-
-    public void SetReferenceMouseFlight(FlyController controller)
-    {
-        mouseFlight = controller;
+        mousePos.position = playerCam.WorldToScreenPoint(controller.MouseAimPos);
+        mousePos.gameObject.SetActive(mousePos.position.z > 1f);
     }
 }
