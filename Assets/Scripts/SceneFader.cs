@@ -5,16 +5,16 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
+
 public class SceneFader : MonoBehaviour
 {
-	#region FIELDS
 	public RawImage fadeOutUIImage;
 	public float fadeSpeed = 0.8f;
 
 	public enum FadeDirection
 	{
-		In, 
-		Out 
+		In,
+		Out
 	}
 
 	void OnEnable()
@@ -45,7 +45,6 @@ public class SceneFader : MonoBehaviour
 			}
 		}
 	}
-	#endregion
 
 	public IEnumerator FadeAndLoadScene(FadeDirection fadeDirection, string sceneToLoad)
 	{

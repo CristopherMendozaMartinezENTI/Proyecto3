@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum GravitationalForce { Up, Down, Left, Right }; 
+public enum GravitationalForce { Up, Down, Left, Right }
 
 public class CubeManager : MonoBehaviour
 {

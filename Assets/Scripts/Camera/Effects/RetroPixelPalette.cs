@@ -48,7 +48,6 @@ namespace Assets.Scripts.Cam.Effects {
 
 			foreach (PaletteGrading pg in gradings) {
 				for (int j = 0; j < pg.size; j++, i++) {
-//					colors[i] = Color.Lerp(pg.c1, pg.c2, (float) j / pg.size);
 					colors[i] = Color.Lerp(pg.c1B, pg.c2B, (float) j/pg.size);
 				}
 			}

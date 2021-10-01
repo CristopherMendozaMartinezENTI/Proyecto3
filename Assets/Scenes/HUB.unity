@@ -25775,7 +25775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeOutUIImage: {fileID: 234506055}
-  fadeSpeed: 5
+  fadeSpeed: 3
 --- !u!4 &2026350454
 Transform:
   m_ObjectHideFlags: 0

@@ -12,8 +12,7 @@ public class TeleportSystem : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.Space))
             {
-                StartCoroutine(GameObject.FindObjectOfType<SceneFader>().FadeAndLoadScene(SceneFader.FadeDirection.Out, sceneName));
-                SceneManager.LoadSceneAsync(sceneName);
+                StartCoroutine(GameObject.FindObjectOfType<SceneFader>().FadeAndLoadScene(SceneFader.FadeDirection.In, sceneName));
             }
         }
     }
