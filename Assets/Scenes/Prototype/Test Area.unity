@@ -59438,7 +59438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeda7bfbf984f2a4da5ab4b8967b115d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Weight: 1
+  m_Weight: 0.8
   m_Data:
     m_Root: {fileID: 6845187347553557422}
     m_Mid: {fileID: 6845187348059851707}
@@ -59748,7 +59748,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 8
   smoothness: 5
-  numberOfRays: 30
+  numberOfRays: 8
   raysEccentricity: 0.5
   outerRaysOffset: 42
   innerRaysOffset: 20
@@ -60177,14 +60177,14 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 1
+        time: 1
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -60482,7 +60482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeda7bfbf984f2a4da5ab4b8967b115d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Weight: 1
+  m_Weight: 0.8
   m_Data:
     m_Root: {fileID: 6845187347331021142}
     m_Mid: {fileID: 6845187348332577313}

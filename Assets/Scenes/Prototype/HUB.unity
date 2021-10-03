@@ -28524,6 +28524,12 @@ MonoBehaviour:
   - {fileID: 6845187348833890672}
   - {fileID: 6845187348506136766}
   - {fileID: 6845187348063608004}
+  smoothness: 3
+  stepSize: 0.5
+  stepHeight: 0.015
+  sphereCastRadius: 0.125
+  raycastRange: 1.5
+  velocityMultiplier: 15
 --- !u!1 &6845187347485390387
 GameObject:
   m_ObjectHideFlags: 0
@@ -28930,7 +28936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeda7bfbf984f2a4da5ab4b8967b115d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Weight: 1
+  m_Weight: 0.8
   m_Data:
     m_Root: {fileID: 6845187347553557422}
     m_Mid: {fileID: 6845187348059851707}
@@ -29238,6 +29244,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69c97196b76ba904d8b19d79f137976d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 8
+  smoothness: 5
+  numberOfRays: 8
+  raysEccentricity: 0.5
+  outerRaysOffset: 42
+  innerRaysOffset: 20
 --- !u!4 &6845187347914192879
 Transform:
   m_ObjectHideFlags: 0
@@ -29968,7 +29980,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeda7bfbf984f2a4da5ab4b8967b115d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Weight: 1
+  m_Weight: 0.8
   m_Data:
     m_Root: {fileID: 6845187347331021142}
     m_Mid: {fileID: 6845187348332577313}
