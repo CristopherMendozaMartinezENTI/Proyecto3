@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private float speed = 3.0f;
-    private float smoothness = 5.0f;
-    private int numberOfRays = 4;
-    private float raysEccentricity = 0.2f;
-    private float outerRaysOffset = 10.0f;
-    private float innerRaysOffset = 25.0f;
+    public float speed = 8.0f;
+    public float smoothness = 5.0f;
+    public int numberOfRays = 30;
+    public float raysEccentricity = 0.5f;
+    public float outerRaysOffset = 42.0f;
+    public float innerRaysOffset = 20.0f;
     private Vector3 velocity;
     private Vector3 lastVelocity;
     private Vector3 lastPosition;
@@ -36,9 +36,9 @@ public class PlayerController : MonoBehaviour
         lastVelocity = velocity;
         float speedMultiplier = 1.0f;
     
-        //Run
+        //Slow Down
         if (Input.GetKey(KeyCode.LeftShift))
-            speedMultiplier = 2.0f;
+            speedMultiplier = 0.5f;
 
         //Move Around
         float valueY = Input.GetAxis("Vertical");
@@ -49,16 +49,13 @@ public class PlayerController : MonoBehaviour
         if (valueX != 0)
             transform.position += Vector3.Cross(transform.up, transform.forward) * valueX * speed * speedMultiplier * Time.fixedDeltaTime;
 
-        if (valueX != 0 || valueY != 0)
-        {
-            pn = getClosestPoint(transform.position, transform.forward, transform.up, 0.5f, 0.2f, 30, -30, 4);
-            upward = pn[1];
-            Vector3[] pos = getClosestPoint(transform.position, transform.forward, transform.up, 0.5f, raysEccentricity, innerRaysOffset, outerRaysOffset, numberOfRays);
-            transform.position = Vector3.Lerp(lastPosition, pos[0], 1.0f / (1.0f + smoothness));
-            forward = velocity.normalized;
-            Quaternion q = Quaternion.LookRotation(forward, upward);
-            transform.rotation = Quaternion.Lerp(lastRot, q, 1.0f / (1.0f + smoothness));
-        }
+        pn = getClosestPoint(transform.position, transform.forward, transform.up, 0.5f, 0.2f, 30, -30, 4);
+        upward = pn[1];
+        Vector3[] pos = getClosestPoint(transform.position, transform.forward, transform.up, 0.5f, raysEccentricity, innerRaysOffset, outerRaysOffset, numberOfRays);
+        transform.position = Vector3.Lerp(lastPosition, pos[0], 1.0f / (1.0f + smoothness));
+        forward = velocity.normalized;
+        Quaternion q = Quaternion.LookRotation(forward, upward);
+        transform.rotation = Quaternion.Lerp(lastRot, q, 1.0f / (1.0f + smoothness));
         lastRot = transform.rotation;
     }
 
@@ -87,7 +84,8 @@ public class PlayerController : MonoBehaviour
             
             if (Physics.SphereCast(ray, 0.01f, out hit, 2f * halfRange))
             {
-                if(hit.transform.gameObject.tag == "Obstacle")
+                Debug.DrawRay(ray.origin, ray.direction);
+                if (hit.transform.gameObject.tag == "Obstacle")
                 {
                     res[0] += hit.point;
                     res[1] += hit.normal;
@@ -98,6 +96,7 @@ public class PlayerController : MonoBehaviour
             ray = new Ray(point - (dir + largener) * halfRange + largener.normalized * offset2 / 100.0f, dir);
             if (Physics.SphereCast(ray, 0.01f, out hit, 2f * halfRange))
             {
+                Debug.DrawRay(ray.origin, ray.direction, Color.green);
                 if (hit.transform.gameObject.tag == "Obstacle")
                 {
                     res[0] += hit.point;

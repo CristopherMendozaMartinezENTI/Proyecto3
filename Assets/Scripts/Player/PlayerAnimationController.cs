@@ -6,13 +6,13 @@ public class PlayerAnimationController : MonoBehaviour
 {
     public Transform[] legTargets;
 
-    private int smoothness = 4;
+    public int smoothness = 4;
     private int numberOfLegs;
-    private float stepSize = 0.15f;
-    private float stepHeight = 0.15f;
-    private float sphereCastRadius = 0.125f;
-    private float raycastRange = 1.5f;
-    private float velocityMultiplier = 15.0f;
+    public float stepSize = 0.015f;
+    public float stepHeight = 0.015f;
+    public float sphereCastRadius = 0.125f;
+    public float raycastRange = 1.5f;
+    public float velocityMultiplier = 15.0f;
     private bool[] legMoving;
     private Vector3[] defaultLegPositions;
     private Vector3[] lastLegPositions;
@@ -126,6 +126,8 @@ public class PlayerAnimationController : MonoBehaviour
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(legTargets[i].position, 0.05f);
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawWireSphere(transform.TransformPoint(defaultLegPositions[i]), stepSize);
         }
     }
 }
