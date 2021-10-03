@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class CameraManager : MonoBehaviour
 {
+    [Header("Options")]
     //Variables of the Camera Movement
     public float sensitivityX = 5.0f;
     public float sensitivityY = 5.0f;

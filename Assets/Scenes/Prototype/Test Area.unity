@@ -12791,7 +12791,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 473228903}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.133312, y: 2.3199992, z: 5.35}
+  m_LocalPosition: {x: -12.133312, y: 2.3199992, z: 5.61}
   m_LocalScale: {x: 5, y: 1.43915, z: 5}
   m_Children:
   - {fileID: 137252589}
@@ -15045,7 +15045,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6193811475252579083, guid: 3f437dcdc9eeb2a4aa2cecd7b6ddb8b7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.331043
+      value: -11.28
       objectReference: {fileID: 0}
     - target: {fileID: 6193811475252579083, guid: 3f437dcdc9eeb2a4aa2cecd7b6ddb8b7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -15053,7 +15053,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6193811475252579083, guid: 3f437dcdc9eeb2a4aa2cecd7b6ddb8b7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.9875355
+      value: -4.56
       objectReference: {fileID: 0}
     - target: {fileID: 6193811475252579083, guid: 3f437dcdc9eeb2a4aa2cecd7b6ddb8b7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -27405,7 +27405,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1050844751}
   m_LocalRotation: {x: -0, y: -0, z: 1, w: 0.0000028461216}
-  m_LocalPosition: {x: -11.822711, y: -21.000853, z: 5.3499994}
+  m_LocalPosition: {x: -11.822711, y: -21.000853, z: 5.6099997}
   m_LocalScale: {x: 5, y: 1.43915, z: 5}
   m_Children:
   - {fileID: 303306429}
@@ -58666,8 +58666,8 @@ MonoBehaviour:
     m_Tip: {fileID: 6845187348145934443}
     m_Target: {fileID: 6845187348093606050}
     m_Hint: {fileID: 0}
-    m_TargetPositionWeight: 0.8
-    m_TargetRotationWeight: 0.5
+    m_TargetPositionWeight: 1
+    m_TargetRotationWeight: 1
     m_HintWeight: 1
     m_MaintainTargetPositionOffset: 0
     m_MaintainTargetRotationOffset: 0
@@ -58787,8 +58787,8 @@ MonoBehaviour:
     m_Tip: {fileID: 6845187347739351966}
     m_Target: {fileID: 6845187348063608004}
     m_Hint: {fileID: 0}
-    m_TargetPositionWeight: 0.8
-    m_TargetRotationWeight: 0.5
+    m_TargetPositionWeight: 1
+    m_TargetRotationWeight: 1
     m_HintWeight: 1
     m_MaintainTargetPositionOffset: 0
     m_MaintainTargetRotationOffset: 0
@@ -58941,8 +58941,8 @@ MonoBehaviour:
     m_Tip: {fileID: 6845187348739616716}
     m_Target: {fileID: 6845187348833890672}
     m_Hint: {fileID: 0}
-    m_TargetPositionWeight: 0.8
-    m_TargetRotationWeight: 0.5
+    m_TargetPositionWeight: 1
+    m_TargetRotationWeight: 1
     m_HintWeight: 1
     m_MaintainTargetPositionOffset: 0
     m_MaintainTargetRotationOffset: 0
@@ -59027,7 +59027,7 @@ MonoBehaviour:
   - {fileID: 6845187348506136766}
   - {fileID: 6845187348063608004}
   smoothness: 3
-  stepSize: 0.015
+  stepSize: 0.5
   stepHeight: 0.015
   sphereCastRadius: 0.125
   raycastRange: 1.5
@@ -59235,8 +59235,8 @@ MonoBehaviour:
     m_Tip: {fileID: 6845187348964497675}
     m_Target: {fileID: 6845187348506136766}
     m_Hint: {fileID: 0}
-    m_TargetPositionWeight: 0.8
-    m_TargetRotationWeight: 0.5
+    m_TargetPositionWeight: 1
+    m_TargetRotationWeight: 1
     m_HintWeight: 1
     m_MaintainTargetPositionOffset: 0
     m_MaintainTargetRotationOffset: 0
@@ -59445,8 +59445,8 @@ MonoBehaviour:
     m_Tip: {fileID: 6845187348424262981}
     m_Target: {fileID: 6845187349247722748}
     m_Hint: {fileID: 0}
-    m_TargetPositionWeight: 0.8
-    m_TargetRotationWeight: 0.5
+    m_TargetPositionWeight: 1
+    m_TargetRotationWeight: 1
     m_HintWeight: 1
     m_MaintainTargetPositionOffset: 0
     m_MaintainTargetRotationOffset: 0
@@ -59729,7 +59729,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6845187347914192872}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.82408303, y: 0.472183, z: 0.5920744}
@@ -59820,8 +59820,8 @@ MonoBehaviour:
     m_Tip: {fileID: 6845187347573562878}
     m_Target: {fileID: 6845187347780462318}
     m_Hint: {fileID: 0}
-    m_TargetPositionWeight: 0.8
-    m_TargetRotationWeight: 0.5
+    m_TargetPositionWeight: 1
+    m_TargetRotationWeight: 1
     m_HintWeight: 1
     m_MaintainTargetPositionOffset: 0
     m_MaintainTargetRotationOffset: 0
@@ -60489,8 +60489,8 @@ MonoBehaviour:
     m_Tip: {fileID: 6845187348802362304}
     m_Target: {fileID: 6845187348313197709}
     m_Hint: {fileID: 0}
-    m_TargetPositionWeight: 0.8
-    m_TargetRotationWeight: 0.5
+    m_TargetPositionWeight: 1
+    m_TargetRotationWeight: 1
     m_HintWeight: 1
     m_MaintainTargetPositionOffset: 0
     m_MaintainTargetRotationOffset: 0
@@ -60854,8 +60854,8 @@ MonoBehaviour:
     m_Tip: {fileID: 6845187348815546450}
     m_Target: {fileID: 6845187347698920798}
     m_Hint: {fileID: 0}
-    m_TargetPositionWeight: 0.8
-    m_TargetRotationWeight: 0.5
+    m_TargetPositionWeight: 1
+    m_TargetRotationWeight: 1
     m_HintWeight: 1
     m_MaintainTargetPositionOffset: 0
     m_MaintainTargetRotationOffset: 0

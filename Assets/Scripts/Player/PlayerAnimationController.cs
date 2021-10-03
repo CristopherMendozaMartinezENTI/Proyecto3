@@ -5,10 +5,10 @@ using UnityEngine;
 public class PlayerAnimationController : MonoBehaviour
 {
     public Transform[] legTargets;
-
-    public int smoothness = 4;
+    [Header("Options")]
+    public int smoothness = 3;
     private int numberOfLegs;
-    public float stepSize = 0.015f;
+    public float stepSize = 0.5f;
     public float stepHeight = 0.015f;
     public float sphereCastRadius = 0.125f;
     public float raycastRange = 1.5f;
@@ -92,7 +92,7 @@ public class PlayerAnimationController : MonoBehaviour
         RaycastHit hit;
         Ray ray = new Ray(point + halfRange * up / 2.0f, -up);
 
-        if (Physics.SphereCast(ray, sphereCastRadius, out hit, 2f * halfRange))
+        if (Physics.SphereCast(ray, sphereCastRadius, out hit, 2.0f * halfRange))
         {
             res[0] = hit.point;
             res[1] = hit.normal;
@@ -125,9 +125,9 @@ public class PlayerAnimationController : MonoBehaviour
         for (int i = 0; i < numberOfLegs; ++i)
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(legTargets[i].position, 0.05f);
+            Gizmos.DrawWireSphere(legTargets[i].position, sphereCastRadius);
             Gizmos.color = Color.cyan;
-            Gizmos.DrawWireSphere(transform.TransformPoint(defaultLegPositions[i]), stepSize);
+            //Gizmos.DrawWireSphere(transform.TransformPoint(defaultLegPositions[i]), stepSize);
         }
     }
 }

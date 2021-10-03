@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Options")]
     public float speed = 8.0f;
     public float smoothness = 5.0f;
     public int numberOfRays = 30;
@@ -84,7 +85,7 @@ public class PlayerController : MonoBehaviour
             
             if (Physics.SphereCast(ray, 0.01f, out hit, 2f * halfRange))
             {
-                Debug.DrawRay(ray.origin, ray.direction);
+                //Debug.DrawRay(ray.origin, ray.direction);
                 if (hit.transform.gameObject.tag == "Obstacle")
                 {
                     res[0] += hit.point;
@@ -96,7 +97,7 @@ public class PlayerController : MonoBehaviour
             ray = new Ray(point - (dir + largener) * halfRange + largener.normalized * offset2 / 100.0f, dir);
             if (Physics.SphereCast(ray, 0.01f, out hit, 2f * halfRange))
             {
-                Debug.DrawRay(ray.origin, ray.direction, Color.green);
+                //Debug.DrawRay(ray.origin, ray.direction, Color.green);
                 if (hit.transform.gameObject.tag == "Obstacle")
                 {
                     res[0] += hit.point;
