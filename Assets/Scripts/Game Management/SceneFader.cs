@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class SceneFader : MonoBehaviour
 {
-	public RawImage fadeOutUIImage;
-	public float fadeSpeed = 0.8f;
+	[SerializeField] private RawImage fadeOutUIImage;
+	[SerializeField] private float fadeSpeed = 0.8f;
 
 	public enum FadeDirection
 	{

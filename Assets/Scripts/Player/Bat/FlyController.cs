@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class FlyManager : MonoBehaviour
+public class FlyController : MonoBehaviour
 {
     [Header("Components")]
-    public FlyController controller = null;
-    public float fowardForce = 0.0f;
-    public float forceMult = 0.0f;
-    public float turnAngle = 90.0f;
-    public float sensitivity = 1.0f;
+    [SerializeField] private FlyCameraController controller;
+    [SerializeField] private float fowardForce = 0.0f;
+    [SerializeField] private float forceMult = 0.0f;
+    [SerializeField] private float turnAngle = 90.0f;
+    [SerializeField] private float sensitivity = 1.0f;
+    [SerializeField] private Vector3 turnForce = new Vector3(1.0f, 1.0f, 1.0f);
     private float currentFowardForce = 0.0f;
     private float pitch = 0.0f;
     private float yaw = 0.0f;
     private float roll = 0.0f;
     private bool rollOverride = false;
     private bool pitchOverride = false;
-    public Vector3 turnForce = new Vector3(1.0f, 1.0f, 1.0f);
     private Rigidbody rigid;
 
     private void Start()

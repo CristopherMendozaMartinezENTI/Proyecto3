@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
-    public string sceneName;
+    [SerializeField] private string sceneName;
     private void Update()
     {
         if(Input.GetKey(KeyCode.Space))

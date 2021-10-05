@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class PlayerAnimationController : MonoBehaviour
 {
-    public Transform[] legTargets;
+    [Header("Components")]
+    [SerializeField] private Transform[] legTargets;
     [Header("Options")]
-    public int smoothness = 3;
-    private int numberOfLegs;
-    public float stepSize = 0.5f;
-    public float stepHeight = 0.015f;
-    public float sphereCastRadius = 0.125f;
-    public float raycastRange = 1.5f;
-    public float velocityMultiplier = 15.0f;
+    [SerializeField] private int smoothness = 3;
+    [SerializeField] private int numberOfLegs;
+    [SerializeField] private float stepSize = 0.5f;
+    [SerializeField] private float stepHeight = 0.015f;
+    [SerializeField] private float sphereCastRadius = 0.125f;
+    [SerializeField] private float raycastRange = 1.5f;
+    [SerializeField] private float velocityMultiplier = 15.0f;
     private bool[] legMoving;
     private Vector3[] defaultLegPositions;
     private Vector3[] lastLegPositions;
@@ -126,8 +127,6 @@ public class PlayerAnimationController : MonoBehaviour
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(legTargets[i].position, sphereCastRadius);
-            Gizmos.color = Color.cyan;
-            //Gizmos.DrawWireSphere(transform.TransformPoint(defaultLegPositions[i]), stepSize);
         }
     }
 }

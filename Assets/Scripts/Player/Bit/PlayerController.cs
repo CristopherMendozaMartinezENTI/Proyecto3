@@ -6,12 +6,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Header("Options")]
-    public float speed = 8.0f;
-    public float smoothness = 5.0f;
-    public int numberOfRays = 8;
-    public float raysEccentricity = 0.5f;
-    public float outerRaysOffset = 42.0f;
-    public float innerRaysOffset = 20.0f;
+    [SerializeField] private float speed = 8.0f;
+    [SerializeField] private float smoothness = 5.0f;
+    [SerializeField] private int numberOfRays = 8;
+    [SerializeField] private float raysEccentricity = 0.5f;
+    [SerializeField] private float outerRaysOffset = 42.0f;
+    [SerializeField] private float innerRaysOffset = 20.0f;
     private Vector3 velocity;
     private Vector3 lastVelocity;
     private Vector3 lastPosition;

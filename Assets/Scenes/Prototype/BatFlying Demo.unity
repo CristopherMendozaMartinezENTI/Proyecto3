@@ -1088,7 +1088,7 @@ GameObject:
   - component: {fileID: 222919696733157747}
   - component: {fileID: 114970855146885723}
   m_Layer: 5
-  m_Name: MouseAim
+  m_Name: AimCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1105,7 +1105,7 @@ GameObject:
   - component: {fileID: 4614795025184420}
   - component: {fileID: 114412279917838310}
   m_Layer: 0
-  m_Name: MouseFlightRig
+  m_Name: FlyRig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1246,7 +1246,7 @@ GameObject:
   - component: {fileID: 114323058175450997}
   - component: {fileID: 114491796749003575}
   m_Layer: 5
-  m_Name: MouseFlightHud
+  m_Name: FlyUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1280,7 +1280,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4543349483637654}
   m_Layer: 0
-  m_Name: CamRig
+  m_Name: CameraRig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1473,7 +1473,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1340265131733852}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9396f98894f2da47b58c709d5591ad8, type: 3}
+  m_Script: {fileID: 11500000, guid: 24a698288fc96c4488e6b6a940d6ed2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 4563114451573410}

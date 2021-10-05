@@ -5,10 +5,9 @@ using UnityEngine;
 public class FlyingUI : MonoBehaviour
 {
     [Header("Components")]
-    [SerializeField] private FlyController mouseFlight = null;
-
+    [SerializeField] private FlyCameraController mouseFlight;
     [Header("HUD Elements")]
-    [SerializeField] private RectTransform mousePos = null;
+    [SerializeField] private RectTransform mousePos;
 
     private Camera playerCam = null;
 
@@ -22,7 +21,7 @@ public class FlyingUI : MonoBehaviour
         UpdateUI(mouseFlight);
     }
 
-    private void UpdateUI(FlyController controller)
+    private void UpdateUI(FlyCameraController controller)
     {
         mousePos.position = playerCam.WorldToScreenPoint(controller.MouseAimPos);
         mousePos.gameObject.SetActive(mousePos.position.z > 1.0f);

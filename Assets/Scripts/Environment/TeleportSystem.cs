@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class TeleportSystem : MonoBehaviour
 {
-    public string sceneName;
+    [SerializeField] private string sceneName;
     void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "Player")

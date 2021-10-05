@@ -6,14 +6,13 @@ public class CameraManager : MonoBehaviour
 {
     [Header("Options")]
     //Variables of the Camera Movement
-    public float sensitivityX = 5.0f;
-    public float sensitivityY = 5.0f;
-    public float minimumX = -30.0f;
-    public float maximumX = 30.0f;
-    public float minimumY = 0.0f;
-    public float maximumY = 620.0f;
-    public float frameCounter = 5.0f;
-
+    [SerializeField] private float sensitivityX = 5.0f;
+    [SerializeField] private float sensitivityY = 5.0f;
+    [SerializeField] private float minimumX = -30.0f;
+    [SerializeField] private float maximumX = 30.0f;
+    [SerializeField] private float minimumY = 0.0f;
+    [SerializeField] private float maximumY = 620.0f;
+    [SerializeField] private float frameCounter = 5.0f;
     private float rotationX = 0.0f;
     private float rotationY = 0.0f;
     private float rotAverageX = 0.0f;
@@ -21,7 +20,6 @@ public class CameraManager : MonoBehaviour
     private List<float> rotArrayX = new List<float>();
     private List<float> rotArrayY = new List<float>();
     private Quaternion originalRotation;
-
     //Variables of the Camera Zooming
     public float zoomMultiplier = 2.0f;
     public float defaultFov = 80.0f;

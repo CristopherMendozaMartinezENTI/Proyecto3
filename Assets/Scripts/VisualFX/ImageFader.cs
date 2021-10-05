@@ -11,11 +11,9 @@ public enum FadeType
 
 public class ImageFader : MonoBehaviour
 {
-    [SerializeField] 
-    private FadeType fadeType;
-    [SerializeField]
-    private RawImage img;
-    public float fadeSpeed = 5.0f;
+    [SerializeField] private FadeType fadeType;
+    [SerializeField] private RawImage img;
+    [SerializeField] private float fadeSpeed = 5.0f;
 
     public void OnEnable()
     {

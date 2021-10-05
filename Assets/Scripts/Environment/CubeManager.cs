@@ -6,9 +6,9 @@ public enum GravitationalForce { Up, Down, Left, Right }
 
 public class CubeManager : MonoBehaviour
 {
-    public string defaultMaterial;
-    public string onHookMaterial;
-    public  GravitationalForce gravityOrientation; 
+    [SerializeField] private string defaultMaterial;
+    [SerializeField] private string onHookMaterial;
+    [SerializeField] private GravitationalForce gravityOrientation; 
     private MeshRenderer mesh;
     private Outline objectOutline;
     private Material defaultM;

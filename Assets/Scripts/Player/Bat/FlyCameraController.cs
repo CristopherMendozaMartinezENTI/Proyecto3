@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlyController : MonoBehaviour
+public class FlyCameraController : MonoBehaviour
 {
     [Header("Components")]
-    public Transform target = null;
-    public Transform mouseAim = null;
-    public Transform cameraRig = null;
-    public Transform cam = null;
+    [SerializeField] private Transform target = null;
+    [SerializeField] private Transform mouseAim = null;
+    [SerializeField] private Transform cameraRig = null;
+    [SerializeField] private Transform cam = null;
 
     [Header("Options")]
-    public float mouseSensitivity = 1.0f;
+    [SerializeField] private float mouseSensitivity = 1.0f;
     private float camSmoothSpeed = 5.0f;
     private float aimDistance = 500f;
     private Vector3 frozenDirection = Vector3.forward;

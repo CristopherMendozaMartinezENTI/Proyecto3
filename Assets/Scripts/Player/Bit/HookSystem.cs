@@ -5,7 +5,7 @@ using UnityEngine;
 public class HookSystem : MonoBehaviour
 {
     [Header("Options")]
-    public float maxGrabDistance = 5.0f;
+    [SerializeField] private float maxGrabDistance = 5.0f;
     private float currentGrabDistance;
     private Vector2 rotationInput;
     private Vector3 hitOffsetLocal;
