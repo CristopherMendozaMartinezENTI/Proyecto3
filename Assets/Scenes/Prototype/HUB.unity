@@ -25193,7 +25193,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1775058344}
   m_Layer: 0
-  m_Name: VisualFx
+  m_Name: Visual FX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
