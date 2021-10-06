@@ -26,6 +26,7 @@ public class SwitchToBat : MonoBehaviour
             batFlyUI.SetActive(true);
             batPlayable.SetActive(true);
             batTargetPoint.SetActive(false);
+            spider.GetComponent<SwitchToBat>().enabled = false;
         }
     }
 }
