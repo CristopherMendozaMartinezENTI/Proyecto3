@@ -34,7 +34,7 @@ public class HookSystem : MonoBehaviour
         {
             if (hitHover.rigidbody != null && !hitHover.rigidbody.isKinematic)
             {
-               hitHover.transform.gameObject.GetComponent<CubeManager>().enableOutline();
+               //hitHover.transform.gameObject.GetComponent<CubeManager>().enableOutline();
             }
         }
 

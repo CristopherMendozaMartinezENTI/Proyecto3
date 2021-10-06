@@ -4,17 +4,8 @@ using UnityEngine;
 
 public class PartnerManager : MonoBehaviour
 {
+    [SerializeField] private GameObject[] collectables;
 
-    public GameObject[] collectables;
-    private GameObject partner;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        partner = GameObject.Find("Partner");
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if(Input.GetMouseButtonDown(1))
@@ -23,7 +14,7 @@ public class PartnerManager : MonoBehaviour
             {
                 collectible.GetComponent<Outline>().enabled = true;
             }
-            partner.gameObject.GetComponent<Animator>().Play("Cast Spell");
+            gameObject.GetComponent<Animator>().Play("Cast Spell");
         }
 
         if (Input.GetMouseButtonUp(1))
@@ -32,7 +23,7 @@ public class PartnerManager : MonoBehaviour
             {
                 collectible.GetComponent<Outline>().enabled = false;
             }
-            partner.gameObject.GetComponent<Animator>().Play("Idle");
+            gameObject.GetComponent<Animator>().Play("Idle");
         }
     }
 }
