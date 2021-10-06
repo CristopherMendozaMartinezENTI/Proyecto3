@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float raysEccentricity = 0.5f;
     [SerializeField] private float outerRaysOffset = 42.0f;
     [SerializeField] private float innerRaysOffset = 20.0f;
+    public float speedMultiplier = 1.0f;
     private Vector3 velocity;
     private Vector3 lastVelocity;
     private Vector3 lastPosition;
@@ -35,8 +36,8 @@ public class PlayerController : MonoBehaviour
             velocity = lastVelocity;
         lastPosition = transform.position;
         lastVelocity = velocity;
-        float speedMultiplier = 1.0f;
-    
+        speedMultiplier = 1.0f;
+
         //Slow Down
         if (Input.GetKey(KeyCode.LeftShift))
             speedMultiplier = 0.5f;

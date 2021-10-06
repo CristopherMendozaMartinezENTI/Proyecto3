@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PartnerManager : MonoBehaviour
+public class HintSystem : MonoBehaviour
 {
     [SerializeField] private GameObject[] collectables;
 
