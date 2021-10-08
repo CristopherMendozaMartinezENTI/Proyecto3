@@ -11508,7 +11508,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4535304155765339378, guid: d826ec7d940f62d498cdcdfed594187d, type: 3}
       propertyPath: m_Constraints
-      value: 112
+      value: 96
       objectReference: {fileID: 0}
     - target: {fileID: 4535304155765339378, guid: d826ec7d940f62d498cdcdfed594187d, type: 3}
       propertyPath: m_Interpolate
@@ -36641,7 +36641,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4535304155765339378, guid: d826ec7d940f62d498cdcdfed594187d, type: 3}
       propertyPath: m_Constraints
-      value: 112
+      value: 96
       objectReference: {fileID: 0}
     - target: {fileID: 4535304155765339382, guid: d826ec7d940f62d498cdcdfed594187d, type: 3}
       propertyPath: m_RootOrder
@@ -36694,6 +36694,14 @@ PrefabInstance:
     - target: {fileID: 4535304155765339389, guid: d826ec7d940f62d498cdcdfed594187d, type: 3}
       propertyPath: m_Name
       value: Rigid Cube
+      objectReference: {fileID: 0}
+    - target: {fileID: 8442679270297360747, guid: d826ec7d940f62d498cdcdfed594187d, type: 3}
+      propertyPath: offset1
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8442679270297360747, guid: d826ec7d940f62d498cdcdfed594187d, type: 3}
+      propertyPath: offset2
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d826ec7d940f62d498cdcdfed594187d, type: 3}

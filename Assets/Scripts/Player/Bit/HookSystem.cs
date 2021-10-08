@@ -13,16 +13,10 @@ public class HookSystem : MonoBehaviour
     private RigidbodyInterpolation initialInterpolationSetting;
     private GameObject player;
     private Rigidbody grabbedRigidbody;
-    private LineRenderer lineRenderer;
 
     private void Start()
     {
         player = GameObject.Find("Player");
-        lineRenderer = this.gameObject.GetComponent<LineRenderer>();
-        lineRenderer.startWidth = 0.01f;
-        lineRenderer.endWidth = 0.01f;
-        lineRenderer.positionCount = 2;
-        lineRenderer.useWorldSpace = true;
     }
 
     private void Update()
@@ -43,9 +37,11 @@ public class HookSystem : MonoBehaviour
             // Reset the rigidbody to how it was before we grabbed it
             if (grabbedRigidbody != null)
             {
-                lineRenderer.positionCount = 2;
                 grabbedRigidbody.interpolation = initialInterpolationSetting;
+                grabbedRigidbody.transform.parent = null;
                 grabbedRigidbody.transform.gameObject.GetComponent<CubeManager>().isNotGrabbedNow();
+                grabbedRigidbody.transform.GetComponent<WebController>().endPos = null;
+                grabbedRigidbody.transform.GetComponent<WebController>().startPos = null;
                 grabbedRigidbody = null;
             }
             return;
@@ -59,8 +55,9 @@ public class HookSystem : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, maxGrabDistance))
             {
-                if (hit.rigidbody != null && !hit.rigidbody.isKinematic)
+                if (hit.rigidbody != null)
                 {
+                    hit.rigidbody.isKinematic = false;
                     grabbedRigidbody = hit.rigidbody;
                     initialInterpolationSetting = grabbedRigidbody.interpolation;
                     rotationDifferenceEuler = hit.transform.rotation.eulerAngles - transform.rotation.eulerAngles;
@@ -68,6 +65,9 @@ public class HookSystem : MonoBehaviour
                     currentGrabDistance = Vector3.Distance(ray.origin, hit.point);
                     grabbedRigidbody.interpolation = RigidbodyInterpolation.Interpolate;
                     grabbedRigidbody.gameObject.GetComponent<CubeManager>().isGrabbedNow();
+                    grabbedRigidbody.transform.parent = player.transform;
+                    grabbedRigidbody.transform.GetComponent<WebController>().endPos = grabbedRigidbody.transform;
+                    grabbedRigidbody.transform.GetComponent<WebController>().startPos = player.transform;
                 }  
             }
         }
@@ -101,16 +101,10 @@ public class HookSystem : MonoBehaviour
             Vector3 force = toDestination / Time.fixedDeltaTime;
             grabbedRigidbody.velocity = Vector3.zero;
             grabbedRigidbody.AddForce(force, ForceMode.VelocityChange);
-
-            //Now we draw the web
-            lineRenderer.SetPosition(0, new Vector3(player.transform.position.x, player.transform.position.y + 0.1f, player.transform.position.z)); 
-            lineRenderer.SetPosition(1, new Vector3(grabbedRigidbody.gameObject.transform.position.x, grabbedRigidbody.gameObject.transform.position.y, grabbedRigidbody.gameObject.transform.position.z)); 
-        }
-        else
-        {
-            //Erase the web
-            lineRenderer.SetPosition(0, new Vector3(0, 0, 0));
-            lineRenderer.SetPosition(1, new Vector3(0, 0, 0));
+            if(Input.GetKeyDown(KeyCode.LeftControl))
+            {
+                grabbedRigidbody.isKinematic = true;
+            }
         }
     } 
 }
