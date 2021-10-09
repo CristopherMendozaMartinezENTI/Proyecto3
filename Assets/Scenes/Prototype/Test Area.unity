@@ -25528,6 +25528,7 @@ GameObject:
   m_Component:
   - component: {fileID: 916899388}
   - component: {fileID: 916899392}
+  - component: {fileID: 916899393}
   - component: {fileID: 916899391}
   - component: {fileID: 916899390}
   - component: {fileID: 916899389}
@@ -25622,6 +25623,43 @@ MonoBehaviour:
   outerRaysOffset: 42
   innerRaysOffset: 20
   speedMultiplier: 1
+--- !u!114 &916899393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 916899387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b48f61547b4937b468326ddbbe4bf1ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPos: {fileID: 0}
+  endPos: {fileID: 0}
+  allWebSections:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  offset1: 0.5
+  offset2: 0.5
 --- !u!1001 &917162534
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -62616,6 +62654,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1685548323}
     m_Modifications:
+    - target: {fileID: 4535304155765339378, guid: d826ec7d940f62d498cdcdfed594187d, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4535304155765339382, guid: d826ec7d940f62d498cdcdfed594187d, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -62664,5 +62706,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rigid Cube
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8442679270297360747, guid: d826ec7d940f62d498cdcdfed594187d, type: 3}
+      propertyPath: offset1
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8442679270297360747, guid: d826ec7d940f62d498cdcdfed594187d, type: 3}
+      propertyPath: offset2
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8442679270297360747, guid: d826ec7d940f62d498cdcdfed594187d, type: 3}
+      propertyPath: allWebSections.Array.size
+      value: 20
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8442679270297360747, guid: d826ec7d940f62d498cdcdfed594187d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d826ec7d940f62d498cdcdfed594187d, type: 3}

@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 4535304155765339378}
   - component: {fileID: 4535304155765339380}
   - component: {fileID: 4535304155765339383}
-  - component: {fileID: 8442679270297360747}
+  - component: {fileID: 1908544683}
   m_Layer: 6
   m_Name: Rigid Cube
   m_TagString: Obstacle
@@ -208,7 +208,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 2
-  m_Constraints: 64
+  m_Constraints: 96
   m_CollisionDetection: 2
 --- !u!114 &4535304155765339380
 MonoBehaviour:
@@ -242,7 +242,7 @@ MonoBehaviour:
   outlineWidth: 5
   bakeKeys: []
   bakeValues: []
---- !u!114 &8442679270297360747
+--- !u!114 &1908544683
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -254,16 +254,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b48f61547b4937b468326ddbbe4bf1ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whatTheRopeIsConnectedTo: {fileID: 0}
-  whatIsHangingFromTheRope: {fileID: 0}
-  allWebSections:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
+  offset1: 0.5
+  offset2: 0.5

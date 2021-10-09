@@ -5,7 +5,7 @@ using UnityEngine;
 public class HookSystem : MonoBehaviour
 {
     [Header("Options")]
-    [SerializeField] private float maxGrabDistance = 5.0f;
+    [SerializeField] private float maxGrabDistance = 3.0f;
     private float currentGrabDistance;
     private Vector2 rotationInput;
     private Vector3 hitOffsetLocal;
@@ -40,8 +40,9 @@ public class HookSystem : MonoBehaviour
                 grabbedRigidbody.interpolation = initialInterpolationSetting;
                 grabbedRigidbody.transform.parent = null;
                 grabbedRigidbody.transform.gameObject.GetComponent<CubeManager>().isNotGrabbedNow();
-                grabbedRigidbody.transform.GetComponent<WebController>().endPos = null;
-                grabbedRigidbody.transform.GetComponent<WebController>().startPos = null;
+                grabbedRigidbody.transform.GetComponent<WebController>().setStartPos(null);
+                grabbedRigidbody.transform.GetComponent<WebController>().setEndPos(null);
+                player.GetComponent<PlayerController>().onHook = false;
                 grabbedRigidbody = null;
             }
             return;
@@ -66,8 +67,9 @@ public class HookSystem : MonoBehaviour
                     grabbedRigidbody.interpolation = RigidbodyInterpolation.Interpolate;
                     grabbedRigidbody.gameObject.GetComponent<CubeManager>().isGrabbedNow();
                     grabbedRigidbody.transform.parent = player.transform;
-                    grabbedRigidbody.transform.GetComponent<WebController>().endPos = grabbedRigidbody.transform;
-                    grabbedRigidbody.transform.GetComponent<WebController>().startPos = player.transform;
+                    grabbedRigidbody.transform.GetComponent<WebController>().setStartPos(player.transform);
+                    grabbedRigidbody.transform.GetComponent<WebController>().setEndPos(grabbedRigidbody.transform);
+                    player.GetComponent<PlayerController>().onHook = true;
                 }  
             }
         }

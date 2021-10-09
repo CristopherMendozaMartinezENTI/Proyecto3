@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class WebController : MonoBehaviour
 {
-    public Transform startPos;
-    public Transform endPos;
+    private Transform startPos;
+    private Transform endPos;
     private LineRenderer lineRenderer;
     private List<Vector3> allWebSections = new List<Vector3>();
 
-    public float offset1;
-    public float offset2;
+    [SerializeField] private float offset1 = 0.5f;
+    [SerializeField] private float offset2 = 0.5f;
 
     void Start()
     {
@@ -32,18 +32,34 @@ public class WebController : MonoBehaviour
         lineRenderer.endWidth = ropeWidth;
         Vector3 A = endPos.position;
         Vector3 D = startPos.position;
-        Vector3 B = A + endPos.up * (-(A - D).magnitude * 0.1f);
-        Vector3 C = D + startPos.up * ((A - D).magnitude * 0.5f);
+        Vector3 B = A + endPos.up * (-(A - D).magnitude * offset1);
+        Vector3 C = D + startPos.up * ((A - D).magnitude * offset2);
         BezierCurve.GetBezierCurve(A, B, C, D, allWebSections);
+
         Vector3[] positions = new Vector3[allWebSections.Count];
+
+        /*
+        positions[10].x = startPos.transform.position.y;
+        positions[10].y = startPos.transform.position.y + 0.1f;
+        positions[10].z = startPos.transform.position.z;
+        */
 
         for (int i = 0; i < allWebSections.Count; i++)
         {
             positions[i] = allWebSections[i];
         }
 
-        positions[0].y = startPos.transform.position.y  + 0.1f;
         lineRenderer.positionCount = positions.Length;
         lineRenderer.SetPositions(positions);
+    }
+
+    public void setStartPos(Transform pos)
+    {
+        startPos = pos;
+    }
+
+    public void setEndPos(Transform pos)
+    {
+        endPos = pos;
     }
 }
