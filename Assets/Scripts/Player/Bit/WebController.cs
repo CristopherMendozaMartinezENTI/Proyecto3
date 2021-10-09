@@ -32,24 +32,15 @@ public class WebController : MonoBehaviour
         lineRenderer.startWidth = ropeWidth;
         lineRenderer.endWidth = ropeWidth;
         Vector3 A = endPos.position;
-        Vector3 D = startPos.position;
-        Vector3 B = A + endPos.up * (-(A - D).magnitude * offset1);
-        Vector3 C = D + startPos.up * ((A - D).magnitude * offset2);
+        Vector3 D = new Vector3(startPos.position.x, startPos.position.y + 0.1f, startPos.position.z);
+        Vector3 B = A + endPos.up * (-(A - D).magnitude * Random.Range(0.1f, offset1));
+        Vector3 C = D + startPos.up * ((A - D).magnitude * Random.Range(0.1f, offset2));
         BezierCurve.GetBezierCurve(A, B, C, D, allWebSections);
-
         Vector3[] positions = new Vector3[allWebSections.Count];
-
-        /*
-        positions[10].x = startPos.transform.position.y;
-        positions[10].y = startPos.transform.position.y + 0.1f;
-        positions[10].z = startPos.transform.position.z;
-        */
-
         for (int i = 0; i < allWebSections.Count; i++)
         {
             positions[i] = allWebSections[i];
         }
-
         lineRenderer.positionCount = positions.Length;
         lineRenderer.SetPositions(positions);
     }
