@@ -19,6 +19,34 @@ public class HookSystem : MonoBehaviour
         player = GameObject.Find("Player");
     }
 
+    private void FixedUpdate()
+    {
+        // We are holding an object
+        if (grabbedRigidbody)
+        {
+            //We place the object in the space in relation with the camera position 
+            Ray ray = Camera.main.ViewportPointToRay(Vector3.one * 0.5f);
+            grabbedRigidbody.MoveRotation(Quaternion.Euler(rotationDifferenceEuler + transform.rotation.eulerAngles));
+            Vector3 holdPoint = ray.GetPoint(currentGrabDistance);
+            Vector3 currentEuler = grabbedRigidbody.rotation.eulerAngles;
+            grabbedRigidbody.transform.RotateAround(holdPoint, transform.right, rotationInput.y);
+            grabbedRigidbody.transform.RotateAround(holdPoint, transform.up, -rotationInput.x);
+            grabbedRigidbody.angularVelocity = Vector3.zero;
+            rotationInput = Vector2.zero;
+            rotationDifferenceEuler = grabbedRigidbody.transform.rotation.eulerAngles - transform.rotation.eulerAngles;
+            Vector3 centerDestination = holdPoint - grabbedRigidbody.transform.TransformVector(hitOffsetLocal);
+            Vector3 toDestination = centerDestination - grabbedRigidbody.transform.position;
+            Vector3 force = toDestination / Time.fixedDeltaTime;
+            grabbedRigidbody.velocity = Vector3.zero;
+            grabbedRigidbody.AddForce(force, ForceMode.VelocityChange);
+
+            if (Input.GetKeyDown(KeyCode.LeftControl))
+            {
+                grabbedRigidbody.isKinematic = true;
+            }
+        }
+    }
+
     private void Update()
     {
         //Here we are hovering on posible targets
@@ -37,6 +65,7 @@ public class HookSystem : MonoBehaviour
             // Reset the rigidbody to how it was before we grabbed it
             if (grabbedRigidbody != null)
             {
+                grabbedRigidbody.transform.tag = "Obstacle";
                 grabbedRigidbody.interpolation = initialInterpolationSetting;
                 grabbedRigidbody.transform.parent = null;
                 grabbedRigidbody.transform.gameObject.GetComponent<CubeManager>().isNotGrabbedNow();
@@ -60,6 +89,7 @@ public class HookSystem : MonoBehaviour
                 {
                     hit.rigidbody.isKinematic = false;
                     grabbedRigidbody = hit.rigidbody;
+                    grabbedRigidbody.tag = "Untagged";
                     initialInterpolationSetting = grabbedRigidbody.interpolation;
                     rotationDifferenceEuler = hit.transform.rotation.eulerAngles - transform.rotation.eulerAngles;
                     hitOffsetLocal = hit.transform.InverseTransformVector(hit.point - hit.transform.position);
@@ -82,31 +112,4 @@ public class HookSystem : MonoBehaviour
             }
         }
     }
-
-    private void FixedUpdate()
-    {
-        // We are holding an object
-        if (grabbedRigidbody)
-        {
-            //We place the object in the space in relation with the camera position 
-            Ray ray = Camera.main.ViewportPointToRay(Vector3.one * 0.5f);
-            grabbedRigidbody.MoveRotation(Quaternion.Euler(rotationDifferenceEuler + transform.rotation.eulerAngles));
-            Vector3 holdPoint = ray.GetPoint(currentGrabDistance);
-            Vector3 currentEuler = grabbedRigidbody.rotation.eulerAngles;
-            grabbedRigidbody.transform.RotateAround(holdPoint, transform.right, rotationInput.y);
-            grabbedRigidbody.transform.RotateAround(holdPoint, transform.up, -rotationInput.x);
-            grabbedRigidbody.angularVelocity = Vector3.zero;
-            rotationInput = Vector2.zero;
-            rotationDifferenceEuler = grabbedRigidbody.transform.rotation.eulerAngles - transform.rotation.eulerAngles;
-            Vector3 centerDestination = holdPoint - grabbedRigidbody.transform.TransformVector(hitOffsetLocal);
-            Vector3 toDestination = centerDestination - grabbedRigidbody.transform.position;
-            Vector3 force = toDestination / Time.fixedDeltaTime;
-            grabbedRigidbody.velocity = Vector3.zero;
-            grabbedRigidbody.AddForce(force, ForceMode.VelocityChange);
-            if(Input.GetKeyDown(KeyCode.LeftControl))
-            {
-                grabbedRigidbody.isKinematic = true;
-            }
-        }
-    } 
 }

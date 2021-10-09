@@ -9,6 +9,7 @@ public class WebController : MonoBehaviour
     private LineRenderer lineRenderer;
     private List<Vector3> allWebSections = new List<Vector3>();
 
+    [Header("Options")]
     [SerializeField] private float offset1 = 0.5f;
     [SerializeField] private float offset2 = 0.5f;
 

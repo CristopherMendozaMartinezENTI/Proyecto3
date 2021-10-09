@@ -14,7 +14,7 @@ public class SwitchToBat : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space) && !spider.GetComponent<PlayerController>().onHook)
         {
             spider.gameObject.GetComponent<PlayerController>().enabled = false;
             batPlayable.GetComponent<FlyController>().enabled = true;

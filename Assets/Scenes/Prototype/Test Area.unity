@@ -25622,7 +25622,7 @@ MonoBehaviour:
   raysEccentricity: 0.5
   outerRaysOffset: 42
   innerRaysOffset: 20
-  speedMultiplier: 1
+  onHook: 0
 --- !u!114 &916899393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25635,29 +25635,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b48f61547b4937b468326ddbbe4bf1ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPos: {fileID: 0}
-  endPos: {fileID: 0}
-  allWebSections:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
   offset1: 0.5
   offset2: 0.5
 --- !u!1001 &917162534
@@ -62672,7 +62649,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4535304155765339382, guid: d826ec7d940f62d498cdcdfed594187d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.3214893
+      value: -2.5714893
       objectReference: {fileID: 0}
     - target: {fileID: 4535304155765339382, guid: d826ec7d940f62d498cdcdfed594187d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -62700,6 +62677,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4535304155765339382, guid: d826ec7d940f62d498cdcdfed594187d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4535304155765339383, guid: d826ec7d940f62d498cdcdfed594187d, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4535304155765339389, guid: d826ec7d940f62d498cdcdfed594187d, type: 3}
