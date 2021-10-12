@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SwitchToBat : MonoBehaviour
 {
+    [Header("Components")]
     [SerializeField] private GameObject spider;
     [SerializeField] private GameObject spiderCamera;
     [SerializeField] private GameObject batPlayable;
@@ -14,7 +15,7 @@ public class SwitchToBat : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && !spider.GetComponent<PlayerController>().onHook)
+        if(Input.GetKeyDown(KeyCode.Space) && !spider.GetComponent<PlayerController>().getOnHook())
         {
             spider.gameObject.GetComponent<PlayerController>().enabled = false;
             batPlayable.GetComponent<FlyController>().enabled = true;

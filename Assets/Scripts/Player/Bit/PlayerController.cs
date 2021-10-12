@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float raysEccentricity = 0.5f;
     [SerializeField] private float outerRaysOffset = 42.0f;
     [SerializeField] private float innerRaysOffset = 20.0f;
-    public bool onHook = false;
+    private bool onHook = false;
     private float speedMultiplier = 1.0f;
     private Vector3 velocity;
     private Vector3 lastVelocity;
@@ -57,11 +57,11 @@ public class PlayerController : MonoBehaviour
 
         pn = getClosestPoint(transform.position, transform.forward, transform.up, 0.5f, 0.2f, 30, -30, 4);
         upward = pn[1];
-        Vector3[] pos = getClosestPoint(transform.position, transform.forward, transform.up, 0.5f, raysEccentricity, innerRaysOffset, outerRaysOffset, numberOfRays);
-        transform.position = Vector3.Lerp(lastPosition, pos[0], 1.0f / (1.0f + smoothness));
+        Vector3[] nextPos = getClosestPoint(transform.position, transform.forward, transform.up, 0.5f, raysEccentricity, innerRaysOffset, outerRaysOffset, numberOfRays);
+        transform.position = Vector3.Lerp(lastPosition, nextPos[0], 1.0f / (1.0f + smoothness));
         forward = velocity.normalized;
-        Quaternion q = Quaternion.LookRotation(forward, upward);
-        transform.rotation = Quaternion.Lerp(lastRot, q, 1.0f / (1.0f + smoothness));
+        Quaternion lookAtRotation = Quaternion.LookRotation(forward, upward);
+        transform.rotation = Quaternion.Lerp(lastRot, lookAtRotation, 1.0f / (1.0f + smoothness));
         lastRot = transform.rotation;
     }
 
@@ -115,5 +115,20 @@ public class PlayerController : MonoBehaviour
         res[0] /= positionAmount;
         res[1] /= normalAmount;
         return res;
+    }
+
+    public void onHookTrue()
+    {
+        onHook = true; 
+    }
+
+    public void onHookFalse()
+    {
+        onHook = false;
+    }
+    
+    public bool getOnHook()
+    {
+        return onHook;
     }
 }

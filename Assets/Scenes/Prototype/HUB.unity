@@ -37802,9 +37802,9 @@ GameObject:
   - component: {fileID: 7147071033096222601}
   - component: {fileID: 7135380104966019193}
   - component: {fileID: 7156921642183101790}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: stair_stone1_straight_LOD0
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

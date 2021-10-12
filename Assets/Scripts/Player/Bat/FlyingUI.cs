@@ -6,7 +6,7 @@ public class FlyingUI : MonoBehaviour
 {
     [Header("Components")]
     [SerializeField] private FlyCameraController mouseFlight;
-    [Header("HUD Elements")]
+    [Header("UI Elements")]
     [SerializeField] private RectTransform mousePos;
 
     private Camera playerCam = null;

@@ -71,7 +71,7 @@ public class HookSystem : MonoBehaviour
                 grabbedRigidbody.transform.gameObject.GetComponent<CubeManager>().isNotGrabbedNow();
                 grabbedRigidbody.transform.GetComponent<WebController>().setStartPos(null);
                 grabbedRigidbody.transform.GetComponent<WebController>().setEndPos(null);
-                player.GetComponent<PlayerController>().onHook = false;
+                player.GetComponent<PlayerController>().onHookFalse();
                 grabbedRigidbody = null;
             }
             return;
@@ -99,7 +99,7 @@ public class HookSystem : MonoBehaviour
                     grabbedRigidbody.transform.parent = player.transform;
                     grabbedRigidbody.transform.GetComponent<WebController>().setStartPos(player.transform);
                     grabbedRigidbody.transform.GetComponent<WebController>().setEndPos(grabbedRigidbody.transform);
-                    player.GetComponent<PlayerController>().onHook = true;
+                    player.GetComponent<PlayerController>().onHookTrue();
                 }  
             }
         }

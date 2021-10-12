@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SwitchToSpider : MonoBehaviour
 {
+    [Header("Components")]
     [SerializeField] private GameObject spider;
     [SerializeField] private GameObject spiderCamera;
     [SerializeField] private GameObject batPlayable;
