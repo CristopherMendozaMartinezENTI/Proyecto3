@@ -12,6 +12,7 @@ public class WebController : MonoBehaviour
     [Header("Options")]
     [SerializeField] private float offset1 = 0.5f;
     [SerializeField] private float offset2 = 0.5f;
+    [SerializeField] private Vector3 webCastPos;
 
     void Start()
     {
@@ -32,7 +33,7 @@ public class WebController : MonoBehaviour
         lineRenderer.startWidth = ropeWidth;
         lineRenderer.endWidth = ropeWidth;
         Vector3 A = endPos.position;
-        Vector3 D = new Vector3(startPos.position.x, startPos.position.y + 0.1f, startPos.position.z);
+        Vector3 D = new Vector3(startPos.position.x + webCastPos.x, startPos.position.y + webCastPos.y, startPos.position.z + webCastPos.z);
         Vector3 B = A + endPos.up * (-(A - D).magnitude * Random.Range(0.1f, offset1));
         Vector3 C = D + startPos.up * ((A - D).magnitude * Random.Range(0.1f, offset2));
         BezierCurve.GetBezierCurve(A, B, C, D, allWebSections);

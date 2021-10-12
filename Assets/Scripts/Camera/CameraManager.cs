@@ -11,7 +11,7 @@ public class CameraManager : MonoBehaviour
     [SerializeField] private float minimumX = -30.0f;
     [SerializeField] private float maximumX = 30.0f;
     [SerializeField] private float minimumY = 0.0f;
-    [SerializeField] private float maximumY = 620.0f;
+    [SerializeField] private float maximumY = 30.0f;
     [SerializeField] private float frameCounter = 5.0f;
     private float rotationX = 0.0f;
     private float rotationY = 0.0f;

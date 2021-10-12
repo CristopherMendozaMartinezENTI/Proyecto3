@@ -2158,7 +2158,6 @@ MonoBehaviour:
   raysEccentricity: 0.5
   outerRaysOffset: 42
   innerRaysOffset: 20
-  onHook: 0
 --- !u!114 &148650207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2173,6 +2172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset1: 0.5
   offset2: 0.5
+  webCastPos: {x: 0, y: 0, z: 0}
 --- !u!1 &152026335
 GameObject:
   m_ObjectHideFlags: 0
@@ -15994,7 +15994,7 @@ MonoBehaviour:
   minimumX: -30
   maximumX: 30
   minimumY: 0
-  maximumY: 20
+  maximumY: 30
   frameCounter: 5
   zoomMultiplier: 2
   defaultFov: 80

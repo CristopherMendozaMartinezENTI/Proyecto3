@@ -3385,6 +3385,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset1: 0.5
   offset2: 0.5
+  webCastPos: {x: -0.1, y: 0, z: 0}
 --- !u!1 &197596637
 GameObject:
   m_ObjectHideFlags: 0
@@ -12936,7 +12937,6 @@ MonoBehaviour:
   raysEccentricity: 0.5
   outerRaysOffset: 42
   innerRaysOffset: 20
-  onHook: 0
 --- !u!4 &636816389
 Transform:
   m_ObjectHideFlags: 0
@@ -14547,6 +14547,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1685548323}
     m_Modifications:
+    - target: {fileID: 1908544683, guid: d826ec7d940f62d498cdcdfed594187d, type: 3}
+      propertyPath: webCastPos.y
+      value: -0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 4535304155765339378, guid: d826ec7d940f62d498cdcdfed594187d, type: 3}
       propertyPath: m_Mass
       value: 20
@@ -18159,7 +18163,7 @@ MonoBehaviour:
   minimumX: -30
   maximumX: 30
   minimumY: 0
-  maximumY: 20
+  maximumY: 30
   frameCounter: 5
   zoomMultiplier: 2
   defaultFov: 80
@@ -20058,6 +20062,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset1: 0.5
   offset2: 0.5
+  webCastPos: {x: 0, y: 0, z: 0}
 --- !u!1 &953363523
 GameObject:
   m_ObjectHideFlags: 0
@@ -46703,6 +46708,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1685548323}
     m_Modifications:
+    - target: {fileID: 1908544683, guid: d826ec7d940f62d498cdcdfed594187d, type: 3}
+      propertyPath: webCastPos.y
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 4535304155765339378, guid: d826ec7d940f62d498cdcdfed594187d, type: 3}
       propertyPath: m_Constraints
       value: 0
