@@ -10154,6 +10154,7 @@ MonoBehaviour:
   rotate: 1
   resize: 0
   rotationSpeed: 1
+  realRotation: 0
   minScale: 0.5
   maxScale: 1.5
 --- !u!1 &376057010
@@ -44660,7 +44661,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: 1c41da19366401140a5e165731058d82, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 1eaf6f83316c2be40aed1c858d37f8d1, type: 2}
   isGlobal: 1
   blendDistance: 0
   weight: 1
@@ -45981,6 +45982,7 @@ MonoBehaviour:
   rotate: 0
   resize: 1
   rotationSpeed: 0
+  realRotation: 0
   minScale: 0.5
   maxScale: 1
 --- !u!1 &1571399279
