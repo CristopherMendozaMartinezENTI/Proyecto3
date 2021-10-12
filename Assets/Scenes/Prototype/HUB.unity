@@ -16161,7 +16161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 951f52edba351c945bd346b47d286394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDis: 1
+  minDis: 1.5
   maxDis: 2
   smooth: 10
 --- !u!1 &1033665333
