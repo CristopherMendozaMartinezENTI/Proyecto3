@@ -13933,6 +13933,7 @@ GameObject:
   m_Component:
   - component: {fileID: 636816389}
   - component: {fileID: 636816388}
+  - component: {fileID: 636816392}
   - component: {fileID: 636816391}
   - component: {fileID: 636816390}
   - component: {fileID: 636816387}
@@ -14026,6 +14027,21 @@ MonoBehaviour:
   batTargetPoint: {fileID: 8515447596458121206}
   batFlyRig: {fileID: 5775542231669749715}
   batFlyUI: {fileID: 5775791547556377058}
+--- !u!114 &636816392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 636816386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18eb17f1b8bdefd428961d3fd42013c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxGrabDistance: 5
+  _webType: 0
+  legRig: {fileID: 2113804787}
 --- !u!1 &637346157
 GameObject:
   m_ObjectHideFlags: 0
@@ -19237,7 +19253,6 @@ GameObject:
   - component: {fileID: 888949192}
   - component: {fileID: 888949186}
   - component: {fileID: 888949193}
-  - component: {fileID: 888949184}
   - component: {fileID: 888949191}
   m_Layer: 0
   m_Name: Main Camera
@@ -19260,19 +19275,6 @@ Transform:
   m_Father: {fileID: 636816389}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 10, y: 0, z: 0}
---- !u!114 &888949184
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 888949182}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18eb17f1b8bdefd428961d3fd42013c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxGrabDistance: 5
 --- !u!45 &888949185
 Skybox:
   m_ObjectHideFlags: 0

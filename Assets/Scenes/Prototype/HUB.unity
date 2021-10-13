@@ -2167,12 +2167,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 148650201}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b48f61547b4937b468326ddbbe4bf1ee, type: 3}
+  m_Script: {fileID: 11500000, guid: 18eb17f1b8bdefd428961d3fd42013c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset1: 0.5
-  offset2: 0.5
-  webCastPos: {x: 0, y: 0, z: 0}
+  maxGrabDistance: 5
+  _webType: 0
+  legRig: {fileID: 1248799587}
 --- !u!1 &152026335
 GameObject:
   m_ObjectHideFlags: 0
@@ -15842,7 +15842,6 @@ GameObject:
   - component: {fileID: 1024807691}
   - component: {fileID: 1024807690}
   - component: {fileID: 1024807697}
-  - component: {fileID: 1024807689}
   - component: {fileID: 1024807688}
   m_Layer: 0
   m_Name: Main Camera
@@ -15964,19 +15963,6 @@ LineRenderer:
     generateLightingData: 1
   m_UseWorldSpace: 1
   m_Loop: 0
---- !u!114 &1024807689
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1024807686}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18eb17f1b8bdefd428961d3fd42013c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxGrabDistance: 5
 --- !u!114 &1024807690
 MonoBehaviour:
   m_ObjectHideFlags: 0
