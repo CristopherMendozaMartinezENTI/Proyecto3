@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class DynamicTextures : MonoBehaviour
 {
+    [Header("Options")]
     [SerializeField] private bool rotate;
     [SerializeField] private bool resize;
     [SerializeField] private float rotationSpeed;
-    [SerializeField] private float realRotation;
-    public float minScale;
-    public float maxScale;
+    [SerializeField] private float minScale;
+    [SerializeField] private float maxScale;
+     private float realRotation;
     private Vector3 scaleChange;
 
     private void Start()

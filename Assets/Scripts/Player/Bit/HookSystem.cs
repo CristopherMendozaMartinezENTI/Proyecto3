@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum WebTType { Normal, Gravitational }
+public enum WebTType { Normal, Gravity }
 
 public class HookSystem : MonoBehaviour
 {
@@ -10,6 +10,9 @@ public class HookSystem : MonoBehaviour
     [SerializeField] private float maxGrabDistance = 3.0f;
     [SerializeField] private WebTType _webType;
     [SerializeField] private GameObject legRig;
+    [Header("UI Elements")]
+    [SerializeField] private GameObject normalWebText;
+    [SerializeField] private GameObject gravityWebText;
     private float currentGrabDistance;
     private Vector2 rotationInput;
     private Vector3 hitOffsetLocal;
@@ -43,7 +46,7 @@ public class HookSystem : MonoBehaviour
                     //We mode the rig towards his flex position
                     if (legRig.transform.localPosition.z != -0.5) legRig.transform.localPosition = Vector3.MoveTowards(legRig.transform.localPosition, new Vector3(0, 0, -0.5f), 0.2f * Time.fixedDeltaTime);
                     return;
-                case WebTType.Gravitational:
+                case WebTType.Gravity:
                     //We place the object in the space in relation with the camera position 
                     Ray ray = Camera.main.ViewportPointToRay(Vector3.one * 0.5f);
                     grabbedRigidbody.MoveRotation(Quaternion.Euler(rotationDifferenceEuler + transform.rotation.eulerAngles));
@@ -75,11 +78,15 @@ public class HookSystem : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
             _webType = WebTType.Normal;
+            normalWebText.SetActive(true);
+            gravityWebText.SetActive(false);
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            _webType = WebTType.Gravitational;
+            _webType = WebTType.Gravity;
+            normalWebText.SetActive(false);
+            gravityWebText.SetActive(true);
         }
 
         //Here we are hovering on posible targets
