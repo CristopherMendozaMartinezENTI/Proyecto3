@@ -89,17 +89,6 @@ public class HookSystem : MonoBehaviour
             gravityWebText.SetActive(true);
         }
 
-        //Here we are hovering on posible targets
-        Ray rayHover = Camera.main.ViewportPointToRay(Vector3.one * 0.5f);
-        RaycastHit hitHover;
-        if (Physics.Raycast(rayHover, out hitHover, maxGrabDistance))
-        {
-            if (hitHover.rigidbody != null && !hitHover.rigidbody.isKinematic)
-            {
-               //hitHover.transform.gameObject.GetComponent<CubeManager>().enableOutline();
-            }
-        }
-
         if (!Input.GetMouseButton(0))
         {
             // Reset the rigidbody to how it was before we grabbed it
@@ -124,33 +113,44 @@ public class HookSystem : MonoBehaviour
             Ray ray = Camera.main.ViewportPointToRay(Vector3.one * 0.5f);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, maxGrabDistance))
+            if(Physics.SphereCast(ray, maxGrabDistance))
             {
-                if (hit.rigidbody != null)
+                if (Physics.Raycast(ray, out hit, maxGrabDistance))
                 {
-                    hit.rigidbody.isKinematic = false;
-                    grabbedRigidbody = hit.rigidbody;
-                    grabbedRigidbody.tag = "Untagged";
-                    initialInterpolationSetting = grabbedRigidbody.interpolation;
-                    rotationDifferenceEuler = hit.transform.rotation.eulerAngles - transform.rotation.eulerAngles;
-                    hitOffsetLocal = hit.transform.InverseTransformVector(hit.point - hit.transform.position);
-                    currentGrabDistance = Vector3.Distance(ray.origin, hit.point);
-                    grabbedRigidbody.interpolation = RigidbodyInterpolation.Interpolate;
-                    grabbedRigidbody.gameObject.GetComponent<CubeManager>().isGrabbedNow();
-                    grabbedRigidbody.transform.parent = player.transform;
-                    grabbedRigidbody.transform.GetComponent<WebController>().setStartPos(player.transform);
-                    grabbedRigidbody.transform.GetComponent<WebController>().setEndPos(grabbedRigidbody.transform);
-                    player.GetComponent<PlayerController>().onHookTrue();
-                }  
+                    if (hit.rigidbody != null)
+                    {
+                        hit.rigidbody.isKinematic = false;
+                        grabbedRigidbody = hit.rigidbody;
+                        grabbedRigidbody.tag = "Untagged";
+                        initialInterpolationSetting = grabbedRigidbody.interpolation;
+                        rotationDifferenceEuler = hit.transform.rotation.eulerAngles - transform.rotation.eulerAngles;
+                        hitOffsetLocal = hit.transform.InverseTransformVector(hit.point - hit.transform.position);
+                        currentGrabDistance = Vector3.Distance(ray.origin, hit.point);
+                        grabbedRigidbody.interpolation = RigidbodyInterpolation.Interpolate;
+                        grabbedRigidbody.gameObject.GetComponent<CubeManager>().isGrabbedNow();
+                        grabbedRigidbody.transform.parent = player.transform;
+                        grabbedRigidbody.transform.GetComponent<WebController>().setStartPos(player.transform);
+                        grabbedRigidbody.transform.GetComponent<WebController>().setEndPos(grabbedRigidbody.transform);
+                        player.GetComponent<PlayerController>().onHookTrue();
+                    }
+                }
             }
-        }
-        else
-        {
-            //Rotate object
-            if (Input.GetKey(KeyCode.R))
+            else
             {
-                rotationInput += new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
+                //Rotate object
+                if (Input.GetKey(KeyCode.R))
+                {
+                    rotationInput += new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
+                }
             }
         }
+           
+    }
+
+    private void OnDrawGizmos()
+    {
+       Ray ray = Camera.main.ViewportPointToRay(Vector3.one * 0.5f);
+       Gizmos.color = Color.cyan;
+       Gizmos.DrawWireSphere(ray.origin, maxGrabDistance);
     }
 }
