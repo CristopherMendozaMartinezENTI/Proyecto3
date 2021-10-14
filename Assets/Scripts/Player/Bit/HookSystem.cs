@@ -134,17 +134,17 @@ public class HookSystem : MonoBehaviour
                         player.GetComponent<PlayerController>().onHookTrue();
                     }
                 }
-            }
-            else
-            {
-                //Rotate object
-                if (Input.GetKey(KeyCode.R))
-                {
-                    rotationInput += new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
-                }
+           
             }
         }
-           
+        else
+        {
+            //Rotate object
+            if (Input.GetKey(KeyCode.R))
+            {
+                rotationInput += new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
+            }
+        }
     }
 
     private void OnDrawGizmos()
