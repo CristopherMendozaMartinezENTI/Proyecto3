@@ -8,8 +8,8 @@ public class CameraManager : MonoBehaviour
     //Variables of the Camera Movement
     [SerializeField] private float sensitivityX = 5.0f;
     [SerializeField] private float sensitivityY = 5.0f;
-    [SerializeField] private float minimumX = -30.0f;
-    [SerializeField] private float maximumX = 30.0f;
+    [SerializeField] private float minimumX = -40.0f;
+    [SerializeField] private float maximumX = 40.0f;
     [SerializeField] private float minimumY = 0.0f;
     [SerializeField] private float maximumY = 30.0f;
     [SerializeField] private float frameCounter = 5.0f;

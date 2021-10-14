@@ -26422,8 +26422,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sensitivityX: 5
   sensitivityY: 5
-  minimumX: -30
-  maximumX: 30
+  minimumX: -40
+  maximumX: 40
   minimumY: 0
   maximumY: 30
   frameCounter: 5

@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 upward;
     private Quaternion lastRot;     
     private Vector3[] pn;
+    private GameObject camera;
 
     private void Start()
     {
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour
         upward = transform.up;
         lastRot = transform.rotation;
         lastPosition = transform.position;
+        camera = GameObject.Find("Main Camera");
     }
 
     private void FixedUpdate()
@@ -54,6 +56,12 @@ public class PlayerController : MonoBehaviour
         float valueX = Input.GetAxis("Horizontal");
         if (valueX != 0)
             transform.position += Vector3.Cross(transform.up, transform.forward) * valueX * speed * speedMultiplier * Time.fixedDeltaTime;
+        
+        if(camera.transform.localRotation.y > 0.3f)
+            transform.position += Vector3.Cross(transform.up, transform.forward) * 0.1f * speed * Time.fixedDeltaTime;
+
+        if (camera.transform.localRotation.y < -0.3f)
+            transform.position += Vector3.Cross(transform.up, transform.forward) * -0.1f * speed * Time.fixedDeltaTime;
 
         pn = getClosestPoint(transform.position, transform.forward, transform.up, 0.5f, 0.2f, 30, -30, 4);
         upward = pn[1];
