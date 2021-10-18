@@ -14159,8 +14159,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 636816386}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.35000002, y: -5.615, z: -12.48}
+  m_LocalRotation: {x: -1.16186e-11, y: 0.06033168, z: 7.022489e-13, w: 0.99817836}
+  m_LocalPosition: {x: 1.64, y: 1.3937874, z: -3.43}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 189009370}
@@ -28034,7 +28034,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1256443972
 RectTransform:
   m_ObjectHideFlags: 0
@@ -48596,6 +48596,10 @@ PrefabInstance:
     - target: {fileID: 6188554158141249545, guid: 3f437dcdc9eeb2a4aa2cecd7b6ddb8b7, type: 3}
       propertyPath: m_Name
       value: 'Star Egg '
+      objectReference: {fileID: 0}
+    - target: {fileID: 6188554158141249545, guid: 3f437dcdc9eeb2a4aa2cecd7b6ddb8b7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6193811475252579083, guid: 3f437dcdc9eeb2a4aa2cecd7b6ddb8b7, type: 3}
       propertyPath: m_RootOrder

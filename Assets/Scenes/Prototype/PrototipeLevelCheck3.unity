@@ -194,7 +194,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1963124289347922, guid: cf2b180cac3506c4a9a0ab45fe990065, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4511282862961232, guid: cf2b180cac3506c4a9a0ab45fe990065, type: 3}
       propertyPath: m_RootOrder
@@ -7831,7 +7831,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &348444030
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14159,8 +14159,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 636816386}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.35000002, y: -5.615, z: -12.48}
+  m_LocalRotation: {x: 0.5048752, y: -0.5048751, z: 0.49507684, w: 0.49507686}
+  m_LocalPosition: {x: 2.0675716, y: -10.49, z: -2.47}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 189009370}
@@ -14168,7 +14168,7 @@ Transform:
   - {fileID: 888949183}
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 91.122986, y: 0, z: 90}
 --- !u!65 &636816390
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17431,7 +17431,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1963124289347922, guid: cf2b180cac3506c4a9a0ab45fe990065, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4511282862961232, guid: cf2b180cac3506c4a9a0ab45fe990065, type: 3}
       propertyPath: m_RootOrder
@@ -26811,7 +26811,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1193664453
 RectTransform:
   m_ObjectHideFlags: 0
@@ -28034,7 +28034,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1256443972
 RectTransform:
   m_ObjectHideFlags: 0
@@ -31397,7 +31397,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1430100120
 RectTransform:
   m_ObjectHideFlags: 0
@@ -44271,7 +44271,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1963124289347922, guid: cf2b180cac3506c4a9a0ab45fe990065, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4511282862961232, guid: cf2b180cac3506c4a9a0ab45fe990065, type: 3}
       propertyPath: m_RootOrder
@@ -48596,6 +48596,10 @@ PrefabInstance:
     - target: {fileID: 6188554158141249545, guid: 3f437dcdc9eeb2a4aa2cecd7b6ddb8b7, type: 3}
       propertyPath: m_Name
       value: 'Star Egg '
+      objectReference: {fileID: 0}
+    - target: {fileID: 6188554158141249545, guid: 3f437dcdc9eeb2a4aa2cecd7b6ddb8b7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6193811475252579083, guid: 3f437dcdc9eeb2a4aa2cecd7b6ddb8b7, type: 3}
       propertyPath: m_RootOrder
