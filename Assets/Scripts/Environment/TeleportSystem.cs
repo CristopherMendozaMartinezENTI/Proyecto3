@@ -12,6 +12,7 @@ public class TeleportSystem : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.Return))
             {
+                this.gameObject.GetComponent<AudioSource>().Play();
                 StartCoroutine(GameObject.FindObjectOfType<SceneFader>().FadeAndLoadScene(SceneFader.FadeDirection.In, sceneName));
             }
         }

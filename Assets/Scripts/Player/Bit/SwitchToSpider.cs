@@ -24,6 +24,7 @@ public class SwitchToSpider : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            this.gameObject.GetComponent<AudioSource>().Play();
             atachToPlayer = false;
             spider.gameObject.GetComponent<PlayerController>().enabled = true;
             batPlayable.GetComponent<FlyController>().enabled = false;
@@ -36,6 +37,7 @@ public class SwitchToSpider : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R))
         {
+            this.gameObject.GetComponent<AudioSource>().Play();
             atachToPlayer = true;
             spider.gameObject.GetComponent<PlayerController>().enabled = true;
             batPlayable.GetComponent<FlyController>().enabled = false;

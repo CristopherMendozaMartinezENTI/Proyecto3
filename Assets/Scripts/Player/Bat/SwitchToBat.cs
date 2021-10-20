@@ -17,6 +17,7 @@ public class SwitchToBat : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space) && !spider.GetComponent<PlayerController>().getOnHook())
         {
+            this.gameObject.GetComponent<AudioSource>().Play();
             spider.gameObject.GetComponent<PlayerController>().enabled = false;
             batPlayable.GetComponent<FlyController>().enabled = true;
             batPlayable.GetComponent<SwitchToSpider>().enabled = true;
