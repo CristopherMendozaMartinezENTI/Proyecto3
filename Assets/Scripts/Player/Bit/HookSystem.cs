@@ -119,7 +119,7 @@ public class HookSystem : MonoBehaviour
                 {
                     if (hit.rigidbody != null)
                     {
-                        hit.rigidbody.isKinematic = false;
+                        //hit.rigidbody.isKinematic = false;
                         grabbedRigidbody = hit.rigidbody;
                         grabbedRigidbody.tag = "Untagged";
                         initialInterpolationSetting = grabbedRigidbody.interpolation;

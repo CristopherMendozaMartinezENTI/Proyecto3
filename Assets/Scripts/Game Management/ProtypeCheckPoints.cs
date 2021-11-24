@@ -20,5 +20,8 @@ public class ProtypeCheckPoints : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F3))
             SceneManager.LoadScene(checkPointScene3);
-    }
+
+        if (Input.GetKeyDown(KeyCode.F4))
+            SceneManager.LoadScene("Main Menu");
+     }
 }

@@ -727,7 +727,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 40b3c587422b1b74b95fafc44c116352, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.05
   m_Pitch: 1
   Loop: 0
@@ -25935,7 +25935,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5a52b26674cd8c64c8f7635e3755b05e, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.05
   m_Pitch: 3
   Loop: 0
@@ -26481,6 +26481,7 @@ GameObject:
   - component: {fileID: 930370368}
   - component: {fileID: 930370375}
   - component: {fileID: 930370366}
+  - component: {fileID: 930370367}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -26601,6 +26602,18 @@ LineRenderer:
     generateLightingData: 1
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &930370367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 930370364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419515dccad7e1043912f4c96875ec72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &930370368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38026,7 +38039,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1716b242cd20e2d489f4ea415db6018c, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.05
   m_Pitch: 3
   Loop: 0
@@ -45277,6 +45290,7 @@ GameObject:
   - component: {fileID: 1523017696}
   - component: {fileID: 1523017695}
   - component: {fileID: 1523017694}
+  - component: {fileID: 1523017700}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -45310,7 +45324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeTrigger: {fileID: 1523017693}
+  volumeTrigger: {fileID: 930370365}
   volumeLayer:
     serializedVersion: 2
     m_Bits: 2147483647
@@ -45448,6 +45462,18 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &1523017700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523017692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419515dccad7e1043912f4c96875ec72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1524049419 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4562075604489022, guid: 1b8fbee291cdc1046a281cb2b3b51bf7, type: 3}

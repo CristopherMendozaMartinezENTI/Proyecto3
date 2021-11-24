@@ -19624,6 +19624,7 @@ GameObject:
   - component: {fileID: 888949186}
   - component: {fileID: 888949193}
   - component: {fileID: 888949191}
+  - component: {fileID: 888949184}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -19645,6 +19646,18 @@ Transform:
   m_Father: {fileID: 636816389}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 10, y: 0, z: 0}
+--- !u!114 &888949184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888949182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419515dccad7e1043912f4c96875ec72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!45 &888949185
 Skybox:
   m_ObjectHideFlags: 0
@@ -48586,7 +48599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeTrigger: {fileID: 5778879435012385639}
+  volumeTrigger: {fileID: 888949183}
   volumeLayer:
     serializedVersion: 2
     m_Bits: 2147483647
@@ -48672,6 +48685,7 @@ GameObject:
   - component: {fileID: 5775612067185762227}
   - component: {fileID: 5775612067185762225}
   - component: {fileID: 5775612067185762226}
+  - component: {fileID: 5775612067185762230}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -48679,6 +48693,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5775612067185762230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5775612067185762229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419515dccad7e1043912f4c96875ec72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5775791547556377058
 GameObject:
   m_ObjectHideFlags: 0

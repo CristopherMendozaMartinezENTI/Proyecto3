@@ -63,6 +63,7 @@ public class PlayerController : MonoBehaviour
         if (camera.transform.localRotation.y < -0.3f)
             transform.position += Vector3.Cross(transform.up, transform.forward) * -0.1f * speed * Time.fixedDeltaTime;
 
+        /*
         pn = getClosestPoint(transform.position, transform.forward, transform.up, 0.5f, 0.2f, 30, -30, 4);
         upward = pn[1];
         Vector3[] nextPos = getClosestPoint(transform.position, transform.forward, transform.up, 0.5f, raysEccentricity, innerRaysOffset, outerRaysOffset, numberOfRays);
@@ -71,6 +72,7 @@ public class PlayerController : MonoBehaviour
         Quaternion lookAtRotation = Quaternion.LookRotation(forward, upward);
         transform.rotation = Quaternion.Lerp(lastRot, lookAtRotation, 1.0f / (1.0f + smoothness));
         lastRot = transform.rotation;
+        */
     }
 
     //This function allows the player to find the closest point near by and move towards it. This basically allows the player to walk on any surface posible
