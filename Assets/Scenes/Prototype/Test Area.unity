@@ -26391,7 +26391,6 @@ GameObject:
   - component: {fileID: 930370368}
   - component: {fileID: 930370375}
   - component: {fileID: 930370366}
-  - component: {fileID: 930370367}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -26512,18 +26511,6 @@ LineRenderer:
     generateLightingData: 1
   m_UseWorldSpace: 1
   m_Loop: 0
---- !u!114 &930370367
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 930370364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 419515dccad7e1043912f4c96875ec72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &930370368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44923,10 +44910,9 @@ GameObject:
   - component: {fileID: 1523017699}
   - component: {fileID: 1523017698}
   - component: {fileID: 1523017697}
+  - component: {fileID: 1523017694}
   - component: {fileID: 1523017696}
   - component: {fileID: 1523017695}
-  - component: {fileID: 1523017694}
-  - component: {fileID: 1523017700}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -45098,18 +45084,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!114 &1523017700
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1523017692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 419515dccad7e1043912f4c96875ec72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1524049419 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4562075604489022, guid: 1b8fbee291cdc1046a281cb2b3b51bf7, type: 3}
@@ -60122,6 +60096,7 @@ GameObject:
   - component: {fileID: 2026350454}
   - component: {fileID: 2026350453}
   - component: {fileID: 2026350455}
+  - component: {fileID: 2026350456}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -60253,6 +60228,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2026350456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2026350452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419515dccad7e1043912f4c96875ec72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2031714590 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4562075604489022, guid: 1b8fbee291cdc1046a281cb2b3b51bf7, type: 3}

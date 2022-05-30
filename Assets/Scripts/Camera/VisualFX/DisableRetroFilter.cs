@@ -4,18 +4,42 @@ using UnityEngine;
 
 public class DisableRetroFilter : MonoBehaviour
 {
-    void Update()
+    private ScanlinesEffect[] scanlines;
+    private Assets.Scripts.Cam.Effects.RetroSize[] retroFilters;
+    private Camera[] cameras;
+
+    private void Start()
     {
-        if(Input.GetKeyDown(KeyCode.F5))
+        scanlines = Resources.FindObjectsOfTypeAll<ScanlinesEffect>();
+        retroFilters = Resources.FindObjectsOfTypeAll<Assets.Scripts.Cam.Effects.RetroSize>();
+    }
+
+    private void FixedUpdate()
+    {
+        if (Input.GetKeyDown(KeyCode.F1))
         {
-            this.gameObject.GetComponent<ScanlinesEffect>().enabled = false;
-            this.gameObject.GetComponent<Assets.Scripts.Cam.Effects.RetroSize>().enabled = false;
+            foreach (ScanlinesEffect scanline in scanlines)
+            {
+                scanline.enabled = false;
+            }
+
+            foreach (Assets.Scripts.Cam.Effects.RetroSize retroFilter in retroFilters)
+            {
+                retroFilter.enabled = false;
+            }
         }
 
-        if(Input.GetKeyDown(KeyCode.F6))
+        if (Input.GetKeyDown(KeyCode.F2))
         {
-            this.gameObject.GetComponent<ScanlinesEffect>().enabled = true;
-            this.gameObject.GetComponent<Assets.Scripts.Cam.Effects.RetroSize>().enabled = true;
+            foreach (ScanlinesEffect scanline in scanlines)
+            {
+                scanline.enabled = true;
+            }
+
+            foreach (Assets.Scripts.Cam.Effects.RetroSize retroFilter in retroFilters)
+            {
+                retroFilter.enabled = true;
+            }
         }
     }
 }

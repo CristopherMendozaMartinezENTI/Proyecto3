@@ -21,11 +21,14 @@ public class HookSystem : MonoBehaviour
     private GameObject player;
     private Rigidbody grabbedRigidbody;
  
+    private bool _wasKinematic;
+    private bool _justReleased;
 
     private void Start()
     {
         player = GameObject.Find("Bit");
         _webType = WebTType.Normal;
+        _wasKinematic = gameObject.GetComponent<Rigidbody>().isKinematic;
     }
 
     private void FixedUpdate()
@@ -64,7 +67,11 @@ public class HookSystem : MonoBehaviour
                     grabbedRigidbody.AddForce(force, ForceMode.VelocityChange);
                     if (Input.GetKeyDown(KeyCode.LeftControl))
                     {
-                        grabbedRigidbody.isKinematic = true;
+                        grabbedRigidbody.collisionDetectionMode = !_wasKinematic ? CollisionDetectionMode.ContinuousSpeculative : CollisionDetectionMode.Continuous;
+                        grabbedRigidbody.isKinematic = _wasKinematic = !_wasKinematic;
+                        _justReleased = true;
+
+                        Release();
                     }
                     return;
             }
@@ -92,23 +99,13 @@ public class HookSystem : MonoBehaviour
         if (!Input.GetMouseButton(0))
         {
             // Reset the rigidbody to how it was before we grabbed it
-            if (grabbedRigidbody != null)
-            {
-                player.GetComponent<PlayerController>().enabled = true;
-                grabbedRigidbody.transform.tag = "Obstacle";
-                grabbedRigidbody.interpolation = initialInterpolationSetting;
-                grabbedRigidbody.transform.parent = null;
-                grabbedRigidbody.transform.gameObject.GetComponent<CubeManager>().isNotGrabbedNow();
-                grabbedRigidbody.transform.GetComponent<WebController>().setStartPos(null);
-                grabbedRigidbody.transform.GetComponent<WebController>().setEndPos(null);
-                player.GetComponent<PlayerController>().onHookFalse();
-                grabbedRigidbody = null;
-            }
+            if (grabbedRigidbody != null) Release();
+             _justReleased = false;
             return;
         }
 
         // We are not holding an object
-        if (grabbedRigidbody == null)
+        if (grabbedRigidbody == null && !_justReleased)
         {
             Ray ray = Camera.main.ViewportPointToRay(Vector3.one * 0.5f);
             RaycastHit hit;
@@ -119,8 +116,9 @@ public class HookSystem : MonoBehaviour
                 {
                     if (hit.rigidbody != null)
                     {
-                        //hit.rigidbody.isKinematic = false;
+                        hit.rigidbody.isKinematic = false;
                         grabbedRigidbody = hit.rigidbody;
+                        _wasKinematic = grabbedRigidbody.isKinematic;
                         grabbedRigidbody.tag = "Untagged";
                         initialInterpolationSetting = grabbedRigidbody.interpolation;
                         rotationDifferenceEuler = hit.transform.rotation.eulerAngles - transform.rotation.eulerAngles;
@@ -145,6 +143,19 @@ public class HookSystem : MonoBehaviour
                 rotationInput += new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
             }
         }
+    }
+
+    private void Release()
+    {
+        player.GetComponent<PlayerController>().enabled = true;
+        grabbedRigidbody.transform.tag = "Obstacle";
+        grabbedRigidbody.interpolation = initialInterpolationSetting;
+        grabbedRigidbody.transform.parent = null;
+        grabbedRigidbody.transform.gameObject.GetComponent<CubeManager>().isNotGrabbedNow();
+        grabbedRigidbody.transform.GetComponent<WebController>().setStartPos(null);
+        grabbedRigidbody.transform.GetComponent<WebController>().setEndPos(null);
+        player.GetComponent<PlayerController>().onHookFalse();
+        grabbedRigidbody = null;
     }
 
     private void OnDrawGizmos()
