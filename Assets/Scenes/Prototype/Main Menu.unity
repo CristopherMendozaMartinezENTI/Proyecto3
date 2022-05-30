@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44746882, g: 0.49742, b: 0.5752943, a: 1}
+  m_IndirectSpecularColor: {r: 0.44746882, g: 0.49742007, b: 0.57529426, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10154,7 +10154,6 @@ MonoBehaviour:
   rotate: 1
   resize: 0
   rotationSpeed: 1
-  realRotation: 0
   minScale: 0.5
   maxScale: 1.5
 --- !u!1 &376057010
@@ -40896,7 +40895,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 1
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -45982,7 +45981,6 @@ MonoBehaviour:
   rotate: 0
   resize: 1
   rotationSpeed: 0
-  realRotation: 0
   minScale: 0.5
   maxScale: 1
 --- !u!1 &1571399279
@@ -59330,9 +59328,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: f0b124c4500a03d4aa097624d0c165eb, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0

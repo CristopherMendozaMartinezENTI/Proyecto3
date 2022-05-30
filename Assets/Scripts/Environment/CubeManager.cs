@@ -15,6 +15,7 @@ public class CubeManager : MonoBehaviour
     private Material onHookM;
     private bool isGrabbed;
     private bool outlineIsEnable;
+    private Vector3 startPos;
 
     private void Start()
     {
@@ -24,6 +25,7 @@ public class CubeManager : MonoBehaviour
         onHookM = Resources.Load<Material>(@"Materials/" + onHookMaterial);
         mesh.material = defaultM;
         isGrabbed = false;
+        startPos = transform.position;
     }
 
     private void FixedUpdate()
@@ -71,4 +73,9 @@ public class CubeManager : MonoBehaviour
     public void disableOutline() { objectOutline.enabled = false; }
 
     public bool outlineState() { return objectOutline.enabled; }
+
+    public void resetPos()
+    {
+        transform.position = startPos;
+    }
 }

@@ -24,7 +24,7 @@ public class HookSystem : MonoBehaviour
 
     private void Start()
     {
-        player = GameObject.Find("Player");
+        player = GameObject.Find("Bit");
         _webType = WebTType.Normal;
     }
 
